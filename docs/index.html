@@ -3,33 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfolio d’Antonin — Python, HTML/CSS, SQL. Projets: Défi Nature, Noob-Note, Bot Discord, Site Restaurant." />
-  <title>Antonin — Portfolio</title>
+  <meta name="description" content="Portfolio d'Antonin CHE — Terminale NSI, Lycée Marseilleveyre. Développeur Python / Web, handball régional élite, candidat filières sélectives." />
+  <title>Antonin CHE — Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <div class="bg">
-    <div class="blob b1" aria-hidden="true"></div>
-    <div class="blob b2" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-  </div>
-
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Retour en haut">
       <span class="dot"></span>
-      <span>Antonin</span>
+      <span>Antonin CHE</span>
     </a>
 
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#projets">Projets</a>
-      <a href="#skills">Compétences</a>
       <a href="#parcours">Parcours</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projets">Projets</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -37,52 +31,39 @@
       <button id="themeBtn" class="btn ghost" type="button" aria-label="Changer le thème">
         <span class="icon" aria-hidden="true">☾</span>
       </button>
-      <a class="btn" href="https://github.com/antoninche" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn primary" href="https://github.com/antoninche" target="_blank" rel="noreferrer">GitHub</a>
       <button id="menuBtn" class="btn ghost mobileOnly" type="button" aria-label="Ouvrir le menu">☰</button>
     </div>
   </header>
 
   <div id="mobileMenu" class="mobileMenu" hidden>
-    <a href="#projets">Projets</a>
-    <a href="#skills">Compétences</a>
     <a href="#parcours">Parcours</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projets">Projets</a>
     <a href="#contact">Contact</a>
   </div>
 
   <main id="top">
     <section class="hero">
       <div class="heroLeft">
-        <p class="badge">Terminale NSI · Dev Python / Web</p>
+        <p class="badge">Terminale NSI · Lycée Marseilleveyre</p>
         <h1>
-          Je construis des projets <span class="accent">propres</span>,
-          <span class="accent">modulaires</span> et <span class="accent">utiles</span>.
+          Premier en <span class="accent">Maths</span>,
+          <span class="accent">NSI</span> et <span class="accent">Philosophie</span> au Bac Blanc.
+          Développeur. Candidat aux filières sélectives.
         </h1>
 
         <p class="lead">
           Stack principale : <strong>Python</strong>, <strong>HTML/CSS</strong>, <strong>SQL</strong>.
-          Focus : backend, architecture, automatisation.
-          <span class="muted">« Passer 4h à automatiser une tâche qui en prend 5 minutes. »</span>
+          Architecture propre, code modulaire.
+          <span class="muted">Candidat aux filières sélectives — rigueur, autonomie, goût de la compétition.</span>
         </p>
 
         <div class="cta">
-          <a class="btn" href="#projets">Voir mes projets</a>
+          <a class="btn primary" href="#projets">Voir mes projets</a>
           <a class="btn ghost" href="#contact">Me contacter</a>
         </div>
 
-        <div class="miniStats" role="list">
-          <div class="stat" role="listitem">
-            <div class="k">Python</div>
-            <div class="v">IA / Bots / Sims</div>
-          </div>
-          <div class="stat" role="listitem">
-            <div class="k">Web</div>
-            <div class="v">UI moderne</div>
-          </div>
-          <div class="stat" role="listitem">
-            <div class="k">SQL</div>
-            <div class="v">Données & CRUD</div>
-          </div>
-        </div>
       </div>
 
       <div class="heroRight">
@@ -93,11 +74,12 @@
           </div>
           <pre class="code" aria-label="Extrait de profil">class Antonin:
     def __init__(self):
-        self.username = "antoninche"
-        self.role = "Student"
-        self.stack = {"main": ["Python", "HTML/CSS", "SQL"]}
-        self.focus = ["Backend", "Architecture"]
-        self.goal = "Automatiser ce qui se répète."</pre>
+        self.nom = "Antonin CHE"
+        self.lycee = "Marseilleveyre"
+        self.stack = ["Python", "HTML/CSS", "SQL"]
+        self.sport = "Handball — Régional Élite"
+        self.concours = ["TrophéeNSI", "CGE_NSI", "NuitCode×3"]
+        self.objectif = "Filières sélectives"</pre>
           <div class="cardBottom">
             <span class="hint">Projets épinglés ↓</span>
           </div>
@@ -105,23 +87,81 @@
       </div>
     </section>
 
-    <section id="projets" class="section">
+    <section id="parcours" class="section">
       <div class="sectionHead">
-        <h2>Projets épinglés</h2>
-        <p class="sub">Sélection des repos mis en avant sur mon profil GitHub.</p>
+        <h2>Parcours</h2>
+        <p class="sub">Formation, résultats et engagements.</p>
       </div>
 
-      <div id="projectsGrid" class="grid"></div>
+      <div class="resultsWrap">
+        <p class="blockLabel">Résultats — bac blanc 2025–2026</p>
+        <div class="results">
+          <div class="result card reveal">
+            <div class="rSubject">Mathématiques</div>
+            <div class="rScore">20<span class="rMax">/20</span></div>
+            <div class="rRank">Rang 1 / 23</div>
+          </div>
+          <div class="result card reveal">
+            <div class="rSubject">NSI</div>
+            <div class="rScore">18.5<span class="rMax">/20</span></div>
+            <div class="rRank">Rang 1 / 15</div>
+          </div>
+          <div class="result card reveal">
+            <div class="rSubject">Philosophie</div>
+            <div class="rScore">16.5<span class="rMax">/20</span></div>
+            <div class="rRank">Rang 1 / 30</div>
+          </div>
+          <div class="result card reveal">
+            <div class="rSubject">Français</div>
+            <div class="rScore">17<span class="rMax">/20</span></div>
+            <div class="rRank">Épr. anticipée</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="tItem reveal">
+          <div class="tDot" aria-hidden="true"></div>
+          <div class="tContent">
+            <h3>Terminale NSI — Lycée Marseilleveyre</h3>
+            <p>Projets Python, web et bases de données. Candidat aux filières sélectives.</p>
+          </div>
+        </div>
+
+        <div class="tItem reveal">
+          <div class="tDot" aria-hidden="true"></div>
+          <div class="tContent">
+            <h3>Stage en service informatique — Seconde</h3>
+            <p>Immersion professionnelle IT : infrastructure, outils internes, environnement de production.</p>
+          </div>
+        </div>
+
+        <div class="tItem reveal">
+          <div class="tDot" aria-hidden="true"></div>
+          <div class="tContent">
+            <h3>Concours &amp; compétitions</h3>
+            <p>Trophée NSI · Nuit du Code <strong>×3</strong> · Concours Général NSI — habitude de la pression et du défi.</p>
+          </div>
+        </div>
+
+        <div class="tItem reveal">
+          <div class="tDot" aria-hidden="true"></div>
+          <div class="tContent">
+            <h3>Handball — Régional Élite Région SUD</h3>
+            <p>Pratique compétitive de haut niveau. Engagement associatif et investissement dans la vie du club.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="skills" class="section">
       <div class="sectionHead">
         <h2>Compétences</h2>
-        <p class="sub">Ce que j’aime faire (et ce que je fais bien).</p>
+        <p class="sub">Ce que je fais, et ce que je fais bien.</p>
       </div>
 
       <div class="skills">
-        <div class="card">
+        <div class="card reveal">
           <h3>Python</h3>
           <ul>
             <li>Bots (Discord), scripts, automatisation</li>
@@ -130,19 +170,19 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h3>Web</h3>
           <ul>
-            <li>Interfaces modernes (responsive, animations)</li>
+            <li>Interfaces modernes, responsive</li>
             <li>HTML/CSS solide, JS propre</li>
             <li>Pages statiques + mise en valeur projet</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h3>Données</h3>
           <ul>
-            <li>SQL & modèle relationnel</li>
+            <li>SQL &amp; modèle relationnel</li>
             <li>CRUD, auth simple</li>
             <li>SQLite (projets scolaires / perso)</li>
           </ul>
@@ -150,37 +190,13 @@
       </div>
     </section>
 
-    <section id="parcours" class="section">
+    <section id="projets" class="section">
       <div class="sectionHead">
-        <h2>Parcours</h2>
-        <p class="sub">Lycée → projets concrets → progression continue.</p>
+        <h2>Projets épinglés</h2>
+        <p class="sub">Sélection de repos représentatifs — tous disponibles sur GitHub.</p>
       </div>
 
-      <div class="timeline">
-        <div class="tItem">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <h3>Terminale NSI</h3>
-            <p>Projets Python (jeu/simulation), web, bases de données.</p>
-          </div>
-        </div>
-
-        <div class="tItem">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <h3>Apps utiles & propres</h3>
-            <p>Noob-Note (Flask + SQLite) : gestion scolaire type PRONOTE.</p>
-          </div>
-        </div>
-
-        <div class="tItem">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <h3>Bots & outils</h3>
-            <p>Bot Discord modulaire (discord.py 2.x) + site de doc GitHub Pages.</p>
-          </div>
-        </div>
-      </div>
+      <div id="projectsGrid" class="grid"></div>
     </section>
 
     <section id="contact" class="section">
@@ -190,19 +206,16 @@
       </div>
 
       <div class="contact">
-        <a class="btn" href="https://github.com/antoninche" target="_blank" rel="noreferrer">Voir mon GitHub</a>
+        <a class="btn primary" href="https://github.com/antoninche" target="_blank" rel="noreferrer">Voir mon GitHub</a>
         <button id="copyBtn" class="btn ghost" type="button" data-copy="antoninche">
           Copier mon @GitHub
         </button>
       </div>
 
-      <p class="foot muted">
-        Sinon envoie moi un mail: <a href="mailto:antoninche.work@gmail.com">antoninche.work@gmail.com</a>
-      </p>
     </section>
 
     <footer class="footer">
-      <span class="muted">© <span id="year"></span> Antonin</span>
+      <span class="muted">© <span id="year"></span> Antonin CHE</span>
       <span class="muted">·</span>
       <a class="muted link" href="#top">Retour en haut</a>
     </footer>
