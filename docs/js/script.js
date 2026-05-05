@@ -1,5 +1,5 @@
 const $ = (sel) => document.querySelector(sel);
-
+ 
 const projects = [
   {
     title: "Défi Nature — IA & simulations (Pygame)",
