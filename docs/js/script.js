@@ -3,7 +3,7 @@ const $ = (sel) => document.querySelector(sel);
 const projects = [
   {
     title: "Défi Nature — IA & simulations (Pygame)",
-    desc: "Recréation du jeu Défi Nature en Python avec interface Pygame, plusieurs stratégies de robots et un module de simulations statistiques.",
+    desc: "Recréation du jeu Défi Nature en Python avec interface Pygame, IA et simulations. 🏆 Lauréat des sélections territoriales du Trophée NSI (catégorie Nature et Informatique).",
     tags: ["Python", "Pygame", "IA", "Simulations"],
     repo: "https://github.com/NSI-Term-2025-2026/defi-nature-trophee-nsi",
     cover: "https://opengraph.githubassets.com/1/NSI-Term-2025-2026/defi-nature-trophee-nsi",
