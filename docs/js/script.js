@@ -1,5 +1,6 @@
 const $ = (sel) => document.querySelector(sel);
- 
+
+/* ─────────────────────────── Projets ─────────────────────────── */
 const projects = [
   {
     title: "Défi Nature — IA & simulations (Pygame)",
@@ -63,53 +64,67 @@ function projectCard(p) {
   `;
 }
 
-// Render projects
 const grid = $("#projectsGrid");
-grid.innerHTML = projects.map(projectCard).join("");
+if (grid) grid.innerHTML = projects.map(projectCard).join("");
 
-// Theme
+
+/* ───────────────────── Thème (clair / sombre) ────────────────── */
+// Le thème initial est déjà appliqué par le script inline du <head>
+// (préférence enregistrée, sinon préférence système). Ici on synchronise
+// l'icône, on gère la bascule manuelle et le suivi du système.
 const THEME_KEY = "antonin_theme";
-function setTheme(mode) {
+const themeIcon = $("#themeBtn .icon");
+
+function applyTheme(mode, persist) {
   document.documentElement.dataset.theme = mode;
-  localStorage.setItem(THEME_KEY, mode);
-  const icon = $("#themeBtn .icon");
-  if (icon) icon.textContent = mode === "light" ? "☼" : "☾";
+  if (persist) localStorage.setItem(THEME_KEY, mode);
+  if (themeIcon) themeIcon.textContent = mode === "light" ? "☼" : "☾";
 }
-const saved = localStorage.getItem(THEME_KEY);
-setTheme(saved || "dark");
+
+// Synchronise l'icône avec le thème déjà en place (sans persister).
+applyTheme(document.documentElement.dataset.theme || "light", false);
 
 $("#themeBtn")?.addEventListener("click", () => {
-  const cur = document.documentElement.dataset.theme || "dark";
-  setTheme(cur === "dark" ? "light" : "dark");
+  const cur = document.documentElement.dataset.theme || "light";
+  applyTheme(cur === "dark" ? "light" : "dark", true);
 });
 
-// Mobile menu
+// Tant qu'aucun choix manuel n'est enregistré, on suit le thème du système.
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+mq.addEventListener?.("change", (e) => {
+  if (!localStorage.getItem(THEME_KEY)) applyTheme(e.matches ? "dark" : "light", false);
+});
+
+
+/* ───────────────────────── Menu mobile ──────────────────────── */
 const menuBtn = $("#menuBtn");
 const mobileMenu = $("#mobileMenu");
 menuBtn?.addEventListener("click", () => {
-  const isHidden = mobileMenu.hasAttribute("hidden");
-  if (isHidden) mobileMenu.removeAttribute("hidden");
+  if (mobileMenu.hasAttribute("hidden")) mobileMenu.removeAttribute("hidden");
   else mobileMenu.setAttribute("hidden", "");
 });
 mobileMenu?.addEventListener("click", (e) => {
   if (e.target.tagName === "A") mobileMenu.setAttribute("hidden", "");
 });
 
-// Copy @
+
+/* ──────────────────── Copier l'email de contact ──────────────── */
 $("#copyBtn")?.addEventListener("click", async (e) => {
-  const handle = e.currentTarget.getAttribute("data-copy") || "antoninche";
+  const btn = e.currentTarget;
+  const value = btn.getAttribute("data-copy") || "";
   try {
-    await navigator.clipboard.writeText(handle);
-    e.currentTarget.textContent = "Copié";
-    setTimeout(() => (e.currentTarget.textContent = "Copier mon @GitHub"), 1400);
+    await navigator.clipboard.writeText(value);
+    btn.textContent = "Copié ✓";
   } catch {
-    e.currentTarget.textContent = "Impossible";
-    setTimeout(() => (e.currentTarget.textContent = "Copier mon @GitHub"), 1400);
+    btn.textContent = "Impossible";
   }
+  setTimeout(() => (btn.textContent = "Copier mon email"), 1400);
 });
 
-$("#year").textContent = String(new Date().getFullYear());
 
+/* ──────────────────────── Année + reveal ─────────────────────── */
+const yearEl = $("#year");
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) {
