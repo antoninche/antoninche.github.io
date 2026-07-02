@@ -3,14 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfolio d'Antonin CHE — Terminale NSI, Lycée Marseilleveyre. Développeur Python / Web, handball régional élite, candidat filières sélectives." />
-  <title>Antonin CHE — Portfolio</title>
+  <meta name="description" content="Antonin CHE — étudiant en Licence MPCI (Mathématiques, Physique, Chimie, Informatique) à Aix-Marseille Université. Profil scientifique orienté maths & informatique, lauréat du Trophée NSI avec Défi Nature. En recherche d'un stage de L1." />
+  <meta name="author" content="Antonin CHE" />
+  <title>Antonin CHE — Étudiant en Licence MPCI · Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Applique le thème avant le rendu pour éviter tout flash (clair/sombre) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("antonin_theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      } catch (e) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
 </head>
 
 <body>
@@ -21,10 +35,11 @@
     </a>
 
     <nav class="nav" aria-label="Navigation principale">
+      <a href="#profil">Profil</a>
       <a href="#parcours">Parcours</a>
       <a href="#skills">Compétences</a>
       <a href="#projets">Projets</a>
-      <a href="#defi-nature">Défi Nature</a>
+      <a href="#defi-nature">Trophée NSI</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -38,219 +53,339 @@
   </header>
 
   <div id="mobileMenu" class="mobileMenu" hidden>
+    <a href="#profil">Profil</a>
     <a href="#parcours">Parcours</a>
     <a href="#skills">Compétences</a>
     <a href="#projets">Projets</a>
-    <a href="#defi-nature">Défi Nature</a>
+    <a href="#defi-nature">Trophée NSI</a>
     <a href="#contact">Contact</a>
   </div>
 
   <main id="top">
-    <section class="hero">
+    <!-- ─────────────────────────── HERO / PROFIL ─────────────────────────── -->
+    <section id="profil" class="hero">
       <div class="heroLeft">
-        <p class="badge">Terminale NSI · Lycée Marseilleveyre</p>
+        <p class="badge">🎓 Étudiant en Licence MPCI · Aix-Marseille Université</p>
+
         <h1>
-          Premier en <span class="accent">Maths</span>,
-          <span class="accent">NSI</span> et <span class="accent">Philosophie</span> au Bac Blanc.
-          Développeur. Candidat aux filières sélectives.
+          Antonin CHE
         </h1>
+        <p class="role">
+          Profil scientifique polyvalent — <span class="accent">maths</span> &amp;
+          <span class="accent">informatique</span> avant tout, cap
+          <span class="accent">ingénieur / recherche</span>.
+        </p>
 
         <p class="lead">
-          Stack principale : <strong>Python</strong>, <strong>HTML/CSS</strong>, <strong>SQL</strong>.
-          Architecture propre, code modulaire.
-          <span class="muted">Candidat aux filières sélectives — rigueur, autonomie, goût de la compétition.</span>
+          Étudiant en <strong>Licence MPCI</strong> (Mathématiques, Physique, Chimie, Informatique).
+          Je conçois des projets en <strong>Python</strong>, <strong>web</strong> et <strong>bases de données</strong> :
+          architecture propre, code modulaire, goût de la rigueur et de la compétition.
+          <span class="muted">Actuellement en recherche d'un <strong>stage de L1</strong>.</span>
         </p>
 
         <div class="cta">
           <a class="btn primary" href="#projets">Voir mes projets</a>
           <a class="btn ghost" href="#contact">Me contacter</a>
         </div>
-
       </div>
 
       <div class="heroRight">
-        <div class="card codeCard">
-          <div class="cardTop">
-            <span class="pill">antonin.py</span>
-            <span class="pill ghost">terminal</span>
+        <div class="card idCard reveal">
+          <div class="idHead">
+            <span class="idAvatar" aria-hidden="true">AC</span>
+            <div>
+              <p class="idName">Antonin CHE</p>
+              <p class="idTitle muted">Étudiant · Licence MPCI</p>
+            </div>
           </div>
-          <pre class="code" aria-label="Extrait de profil">class Antonin:
-    def __init__(self):
-        self.nom = "Antonin CHE"
-        self.lycee = "Marseilleveyre"
-        self.stack = ["Python", "HTML/CSS", "SQL"]
-        self.sport = "Handball — Régional Élite"
-        self.concours = ["TrophéeNSI", "CGE_NSI", "NuitCode×3"]
-        self.objectif = "Filières sélectives"</pre>
-          <div class="cardBottom">
-            <span class="hint">Projets épinglés ↓</span>
+
+          <ul class="idList">
+            <li class="idRow">
+              <span class="idIcon" aria-hidden="true">🎓</span>
+              <span class="idLabel">Formation</span>
+              <span class="idValue">Licence MPCI — AMU (Saint-Jérôme), rentrée 2026</span>
+            </li>
+            <li class="idRow">
+              <span class="idIcon" aria-hidden="true">📍</span>
+              <span class="idLabel">Localisation</span>
+              <span class="idValue">Marseille</span>
+            </li>
+            <li class="idRow">
+              <span class="idIcon" aria-hidden="true">💻</span>
+              <span class="idLabel">Stack</span>
+              <span class="idValue">Python · HTML/CSS/JS · SQL</span>
+            </li>
+            <li class="idRow">
+              <span class="idIcon" aria-hidden="true">🎯</span>
+              <span class="idLabel">Objectif</span>
+              <span class="idValue">École d'ingénieur / recherche</span>
+            </li>
+          </ul>
+
+          <a class="idTrophy" href="#defi-nature">
+            <span class="idTrophyIcon" aria-hidden="true">🏆</span>
+            <span><strong>Lauréat du Trophée NSI</strong> — projet Défi Nature</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────── CE QUE JE RECHERCHE ──────────────────────── -->
+    <section id="recherche" class="section">
+      <div class="card seek reveal">
+        <div class="seekIntro">
+          <p class="kicker">🎯 Ce que je recherche</p>
+          <h2>Un stage de L1 pour mettre mes compétences en pratique.</h2>
+          <p class="sub">Ouvert, motivé et disponible pour un premier stage en entreprise ou en labo.</p>
+          <a class="btn primary" href="#contact">Me contacter</a>
+        </div>
+
+        <div class="seekGrid">
+          <div class="seekItem">
+            <div class="k">Domaine</div>
+            <!-- À CONFIRMER : ajuster le domaine visé -->
+            <div class="v">Développement · Data · Informatique scientifique </div>
+          </div>
+          <div class="seekItem">
+            <div class="k">Période</div>
+            <!-- À CONFIRMER : période du stage -->
+            <div class="v">Été 2027 </div>
+          </div>
+          <div class="seekItem">
+            <div class="k">Durée</div>
+            <!-- À CONFIRMER : durée souhaitée -->
+            <div class="v">2 à 8 semaines <span class="todo">à préciser</span></div>
+          </div>
+          <div class="seekItem">
+            <div class="k">Lieu</div>
+            <!-- À CONFIRMER : lieu / mobilité -->
+            <div class="v">Marseille ou France</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ───────────────────────── FORMATION & PARCOURS ───────────────────── -->
     <section id="parcours" class="section">
       <div class="sectionHead">
-        <h2>Parcours</h2>
-        <p class="sub">Formation, résultats et engagements.</p>
-      </div>
-
-      <div class="resultsWrap">
-        <p class="blockLabel">Résultats — bac blanc 2025–2026</p>
-        <div class="results">
-          <div class="result card reveal">
-            <div class="rSubject">Mathématiques</div>
-            <div class="rScore">20<span class="rMax">/20</span></div>
-            <div class="rRank">Rang 1</div>
-          </div>
-          <div class="result card reveal">
-            <div class="rSubject">NSI</div>
-            <div class="rScore">20<span class="rMax">/20</span></div>
-            <div class="rRank">Rang 1</div>
-          </div>
-          <div class="result card reveal">
-            <div class="rSubject">Philosophie</div>
-            <div class="rScore">18<span class="rMax">/20</span></div>
-            <div class="rRank">Rang 1</div>
-          </div>
-          <div class="result card reveal">
-            <div class="rSubject">Français</div>
-            <div class="rScore">17<span class="rMax">/20</span></div>
-            <div class="rRank">Épr. anticipée</div>
-          </div>
-        </div>
+        <h2>Formation &amp; parcours</h2>
+        <p class="sub">Du lycée à l'université, du plus récent au plus ancien.</p>
       </div>
 
       <div class="timeline">
         <div class="tItem reveal">
           <div class="tDot" aria-hidden="true"></div>
           <div class="tContent">
-            <h3>Terminale NSI — Lycée Marseilleveyre</h3>
-            <p>Projets Python, web et bases de données. Candidat aux filières sélectives.</p>
+            <div class="tTop">
+              <h3>Licence MPCI — Aix-Marseille Université (Saint-Jérôme)</h3>
+              <span class="tDate">Depuis 2026</span>
+            </div>
+            <p>
+              Admis en <strong>Licence sélective MPCI</strong> (Mathématiques, Physique, Chimie,
+              Informatique). Formation pluridisciplinaire exigeante, tremplin vers une école
+              d'ingénieur ou un master recherche.
+            </p>
           </div>
         </div>
 
         <div class="tItem reveal">
           <div class="tDot" aria-hidden="true"></div>
           <div class="tContent">
-            <h3>Stage en service informatique — Seconde</h3>
-            <p>Immersion professionnelle IT : infrastructure, outils internes, environnement de production.</p>
+            <div class="tTop">
+              <h3>Baccalauréat général — spécialité NSI</h3>
+              <span class="tDate">2026</span>
+            </div>
+            <p>
+              Lycée Marseilleveyre (Marseille). Spécialité Mathématiques-NSI (Numérique et Sciences
+              Informatiques). Projets Python, web et bases de données.
+            </p>
           </div>
         </div>
 
         <div class="tItem reveal">
           <div class="tDot" aria-hidden="true"></div>
           <div class="tContent">
-            <h3>Concours &amp; compétitions</h3>
-            <p>Trophée NSI · Nuit du Code <strong>×3</strong> · Concours Général NSI — habitude de la pression et du défi.</p>
+            <div class="tTop">
+              <h3>Concours &amp; compétitions</h3>
+              <span class="tDate">Lycée</span>
+            </div>
+            <p>
+              <strong>Trophée NSI</strong> (lauréat territorial) · Nuit du Code <strong>×3</strong> ·
+              Concours Général NSI — l'habitude de la pression, du travail en équipe et du défi.
+            </p>
           </div>
         </div>
 
         <div class="tItem reveal">
           <div class="tDot" aria-hidden="true"></div>
           <div class="tContent">
-            <h3>Handball — Régional Élite Région SUD</h3>
-            <p>Pratique compétitive de haut niveau. Engagement associatif et investissement dans la vie du club.</p>
+            <div class="tTop">
+              <h3>Stage en service informatique</h3>
+              <span class="tDate">Seconde</span>
+            </div>
+            <p>
+              Immersion professionnelle IT : infrastructure, outils internes, environnement de
+              production. Premier contact avec le monde de l'entreprise.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ───────────────────────────── COMPÉTENCES ────────────────────────── -->
     <section id="skills" class="section">
       <div class="sectionHead">
         <h2>Compétences</h2>
-        <p class="sub">Ce que je fais, et ce que je fais bien.</p>
+        <p class="sub">Ce que je sais faire, et ce que je fais bien.</p>
       </div>
 
       <div class="skills">
         <div class="card reveal">
-          <h3>Python</h3>
+          <h3>Informatique &amp; Python</h3>
           <ul>
-            <li>Bots (Discord), scripts, automatisation</li>
-            <li>Architecture modulaire, logs, config</li>
-            <li>Simulations / stats (comparaisons de stratégies)</li>
+            <li>Algorithmique, POO, structures de données</li>
+            <li>Projets Python : bots, simulations, jeux</li>
+            <li>Architecture modulaire, logs, configuration</li>
           </ul>
         </div>
 
         <div class="card reveal">
-          <h3>Web</h3>
+          <h3>Web &amp; données</h3>
           <ul>
-            <li>Interfaces modernes, responsive</li>
-            <li>HTML/CSS solide, JS propre</li>
-            <li>Pages statiques + mise en valeur projet</li>
+            <li>HTML / CSS / JS, interfaces responsive</li>
+            <li>SQL &amp; modèle relationnel (SQLite)</li>
+            <li>CRUD, authentification simple, sites statiques</li>
           </ul>
         </div>
 
         <div class="card reveal">
-          <h3>Données</h3>
+          <h3>Fondamentaux scientifiques</h3>
           <ul>
-            <li>SQL &amp; modèle relationnel</li>
-            <li>CRUD, auth simple</li>
-            <li>SQLite (projets scolaires / perso)</li>
+            <li>Mathématiques : algèbre, analyse, probabilités &amp; stats</li>
+            <li>Bases pluridisciplinaires (maths, physique, chimie)</li>
+            <li>Rigueur, méthode, résolution de problèmes</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- ────────────────────────────── PROJETS ───────────────────────────── -->
     <section id="projets" class="section">
       <div class="sectionHead">
-        <h2>Projets épinglés</h2>
-        <p class="sub">Sélection de repos représentatifs — tous disponibles sur GitHub.</p>
+        <h2>Projets</h2>
+        <p class="sub">Sélection de projets représentatifs — code disponible sur GitHub.</p>
       </div>
 
       <div id="projectsGrid" class="grid"></div>
     </section>
 
+    <!-- ─────────────────────── TROPHÉE NSI · DÉFI NATURE ─────────────────── -->
     <section id="defi-nature" class="section">
-  <div class="sectionHead">
-    <h2>🏆 Défi Nature</h2>
-    <p class="sub">Projet primé au Trophée NSI.</p>
-  </div>
+      <div class="sectionHead">
+        <h2>🏆 Trophée NSI — Défi Nature</h2>
+        <p class="sub">Projet primé lors des sélections territoriales.</p>
+      </div>
 
-  <div class="card reveal" style="border-color: rgba(59,130,246,.4);">
-    <h3 style="margin-bottom:10px;">
-      Lauréat — Sélections territoriales du Trophée NSI
-    </h3>
+      <div class="card award reveal">
+        <div class="awardHead">
+          <span class="awardBadge">🏆 Lauréat territorial</span>
+          <h3>Sélections territoriales du Trophée NSI — catégorie « Nature et Informatique »</h3>
+        </div>
 
-    <p class="muted" style="margin-bottom:14px;">
-      Le projet <strong>Défi Nature</strong> a été sélectionné comme
-      <strong>gagnant des sélections territoriales du Trophée NSI</strong>
-      dans la catégorie <strong>“Nature et Informatique”</strong>.
-    </p>
+        <p class="muted">
+          Le projet <strong>Défi Nature</strong> a été sélectionné comme
+          <strong>gagnant des sélections territoriales du Trophée NSI</strong>.
+          Un jeu recréé en Python combinant développement logiciel, simulation de stratégies
+          et sensibilisation à la biodiversité.
+        </p>
 
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Pygame</span>
-      <span class="tag">IA</span>
-      <span class="tag">🏆 Trophée NSI</span>
-    </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pygame</span>
+          <span class="tag">IA</span>
+          <span class="tag">Simulations</span>
+          <span class="tag award-tag">🏆 Trophée NSI</span>
+        </div>
 
-    <p class="muted" style="margin-top:14px;">
-      Projet combinant développement logiciel, simulation de stratégies et sensibilisation à la biodiversité.
-    </p>
+        <ul class="awardList muted">
+          <li>Interface complète avec historique de jeu</li>
+          <li>Plusieurs stratégies d'IA (heuristiques et probabilistes)</li>
+          <li>Module de simulations statistiques</li>
+          <li>Architecture moteur / interface séparée</li>
+        </ul>
 
-    <ul style="margin-top:12px; padding-left:18px;" class="muted">
-      <li>Interface complète avec historique de jeu</li>
-      <li>Plusieurs stratégies d’IA (heuristiques et probabilistes)</li>
-      <li>Module de simulations statistiques</li>
-      <li>Architecture moteur / interface séparée</li>
-    </ul>
-  </div>
-</section>
-    
+        <div class="award-links">
+          <a class="linkBtn" href="https://github.com/NSI-Term-2025-2026/defi-nature-trophee-nsi" target="_blank" rel="noreferrer">Voir le repo ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── RÉSULTATS TERMINALE (compact) ───────────────── -->
+    <section id="resultats" class="section">
+      <div class="sectionHead">
+        <h2>Avant l'université</h2>
+        <p class="sub">Quelques résultats de Terminale, à titre indicatif.</p>
+      </div>
+
+      <div class="miniResults reveal">
+        <p class="blockLabel">Bac blanc — Terminale (2025–2026)</p>
+        <div class="miniRow">
+          <span class="miniResult"><b>20</b>/20 · Mathématiques</span>
+          <span class="miniResult"><b>20</b>/20 · NSI</span>
+          <span class="miniResult"><b>18</b>/20 · Philosophie</span>
+          <span class="miniResult"><b>17</b>/20 · Français <em>(anticipé)</em></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── LANGUES & CENTRES D'INTÉRÊT (À côté) ─────────────── -->
+    <section id="extras" class="section">
+      <div class="sectionHead">
+        <h2>À côté</h2>
+        <p class="sub">Langues et centres d'intérêt.</p>
+      </div>
+
+      <div class="extras">
+        <div class="card reveal">
+          <h3>Langues</h3>
+          <ul class="langList">
+            <li class="langRow"><span class="lang">Français</span><span class="langLevel">Langue maternelle -- C2</span></li>
+            <!-- À CONFIRMER : niveau d'anglais réel -->
+            <li class="langRow"><span class="lang">Anglais</span><span class="langLevel">Intermédiaire / avancé -- B1<span class="todo">à préciser</span></span></li>
+            <!-- À CONFIRMER : ajouter une autre langue si besoin (ex. Espagnol) -->
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <h3>Centres d'intérêt</h3>
+          <div class="chips">
+            <span class="chip">🤾 Handball — Régional Élite (Région SUD)</span>
+            <span class="chip">💻 Développement &amp; nouvelles technos</span>
+            <!-- À CONFIRMER : ajouter d'autres centres d'intérêt -->
+            <span class="chip todoChip">➕ à compléter</span>
+          </div>
+          <p class="muted handballNote">
+            Pratique compétitive de haut niveau : engagement associatif, esprit d'équipe et
+            goût de la compétition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────── CONTACT ───────────────────────────── -->
     <section id="contact" class="section">
       <div class="sectionHead">
         <h2>Contact</h2>
-        <p class="sub">Le plus simple : GitHub.</p>
+        <p class="sub">Une opportunité de stage ? Écrivez-moi.</p>
       </div>
 
       <div class="contact">
-        <a class="btn primary" href="https://github.com/antoninche" target="_blank" rel="noreferrer">Voir mon GitHub</a>
-        <button id="copyBtn" class="btn ghost" type="button" data-copy="antoninche">
-          Copier mon @GitHub
+        <a class="btn primary" href="mailto:school.an.chenavaz@gmail.com">✉︎ Me contacter par email</a>
+        <button id="copyBtn" class="btn ghost" type="button" data-copy="school.an.chenavaz@gmail.com">
+          Copier mon email
         </button>
+        <a class="btn ghost" href="https://github.com/antoninche" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
-
     </section>
 
     <footer class="footer">
