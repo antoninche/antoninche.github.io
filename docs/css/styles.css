@@ -1,31 +1,39 @@
+/* ============================================================
+   Antonin CHE — Portfolio / CV MPCI
+   Design bimodal (clair + sombre), accent indigo, or pour le Trophée.
+   ============================================================ */
 
 :root {
-  --bg:         #05091a;
-  --panel:      rgba(255,255,255,.055);
+  --bg:         #0b1020;
+  --panel:      rgba(255,255,255,.05);
   --panel2:     rgba(255,255,255,.085);
   --text:       rgba(255,255,255,.93);
-  --muted:      rgba(255,255,255,.50);
-  --border:     rgba(255,255,255,.09);
-  --shadow:     0 4px 28px rgba(0,0,0,.45);
-  --accent:     #3b82f6;
-  --accent2:    #60a5fa;
-  --accent-dim: rgba(59,130,246,.13);
+  --muted:      rgba(255,255,255,.55);
+  --border:     rgba(255,255,255,.10);
+  --shadow:     0 10px 34px rgba(0,0,0,.42);
+  --accent:     #818cf8;
+  --accent2:    #a5b4fc;
+  --accent-dim: rgba(129,140,248,.15);
+  --gold:       #fbbf24;
+  --gold-dim:   rgba(251,191,36,.15);
   --radius:     14px;
   --max:        1080px;
   --blur:       14px;
 }
 
 [data-theme="light"] {
-  --bg:         #f4f7ff;
-  --panel:      rgba(10,20,70,.06);
-  --panel2:     rgba(10,20,70,.10);
-  --text:       rgba(10,20,60,.92);
-  --muted:      rgba(10,20,60,.52);
-  --border:     rgba(10,20,60,.11);
-  --shadow:     0 4px 24px rgba(10,20,60,.09);
-  --accent:     #2563eb;
-  --accent2:    #3b82f6;
-  --accent-dim: rgba(37,99,235,.10);
+  --bg:         #f7f8fc;
+  --panel:      rgba(24,28,66,.045);
+  --panel2:     rgba(24,28,66,.085);
+  --text:       rgba(22,26,55,.92);
+  --muted:      rgba(30,35,70,.58);
+  --border:     rgba(24,28,66,.12);
+  --shadow:     0 10px 30px rgba(30,35,80,.10);
+  --accent:     #4f46e5;
+  --accent2:    #6366f1;
+  --accent-dim: rgba(79,70,229,.10);
+  --gold:       #b45309;
+  --gold-dim:   rgba(180,83,9,.11);
 }
 
 
@@ -36,7 +44,9 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background-color: var(--bg);
-  background-image: radial-gradient(ellipse 90% 55% at 20% -5%, var(--accent-dim) 0%, transparent 65%);
+  background-image:
+    radial-gradient(ellipse 85% 55% at 15% -8%, var(--accent-dim) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, var(--gold-dim) 0%, transparent 55%);
   background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
@@ -47,6 +57,7 @@ a { color: inherit; text-decoration: none }
 strong { font-weight: 700 }
 
 
+/* ─────────────────────────── Top bar ─────────────────────────── */
 .topbar {
   position: sticky;
   top: 0;
@@ -57,7 +68,7 @@ strong { font-weight: 700 }
   gap: 16px;
   padding: 13px 20px;
   border-bottom: 1px solid var(--border);
-  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
   backdrop-filter: blur(var(--blur));
 }
 
@@ -89,14 +100,12 @@ strong { font-weight: 700 }
   font-weight: 500;
   transition: color .15s, background .15s;
 }
-.nav a:hover {
-  color: var(--text);
-  background: var(--panel);
-}
+.nav a:hover { color: var(--text); background: var(--panel) }
 
 .actions { display: flex; gap: 8px; align-items: center }
 
 
+/* ─────────────────────────── Buttons ─────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -114,19 +123,13 @@ strong { font-weight: 700 }
 }
 .btn:hover {
   background: var(--panel2);
-  border-color: rgba(59,130,246,.3);
+  border-color: color-mix(in oklab, var(--accent) 40%, transparent);
   transform: translateY(-1px);
 }
 .btn:active { transform: translateY(0) }
 
-.btn.ghost {
-  background: transparent;
-  border-color: transparent;
-}
-.btn.ghost:hover {
-  background: var(--panel);
-  border-color: var(--border);
-}
+.btn.ghost { background: transparent; border-color: transparent }
+.btn.ghost:hover { background: var(--panel); border-color: var(--border) }
 
 .btn.primary {
   background: var(--accent);
@@ -143,13 +146,14 @@ strong { font-weight: 700 }
 .mobileOnly { display: none }
 
 
+/* ───────────────────────── Mobile menu ───────────────────────── */
 .mobileMenu {
   position: sticky;
   top: 56px;
   z-index: 9;
   padding: 8px 12px 12px;
   border-bottom: 1px solid var(--border);
-  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  background: color-mix(in oklab, var(--bg) 90%, transparent);
   backdrop-filter: blur(var(--blur));
 }
 .mobileMenu a {
@@ -163,134 +167,260 @@ strong { font-weight: 700 }
 .mobileMenu a:hover { background: var(--panel); color: var(--text) }
 
 
+/* ─────────────────────────── Layout ─────────────────────────── */
 main { max-width: var(--max); margin: 0 auto; padding: 28px 20px 72px }
 
 .hero {
   display: grid;
   grid-template-columns: 1.15fr .85fr;
-  gap: 28px;
-  padding: 44px 0 32px;
-  align-items: start;
+  gap: 30px;
+  padding: 46px 0 30px;
+  align-items: center;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 12px;
-  border: 1px solid rgba(59,130,246,.30);
-  border-radius: 6px;
+  padding: 6px 13px;
+  border: 1px solid color-mix(in oklab, var(--accent) 32%, transparent);
+  border-radius: 999px;
   background: var(--accent-dim);
   color: var(--accent2);
   font-size: 13px;
-  font-weight: 500;
-  margin: 0 0 20px;
+  font-weight: 600;
+  margin: 0 0 18px;
   width: fit-content;
 }
+[data-theme="light"] .badge { color: var(--accent) }
 
 h1 {
-  font-size: clamp(28px, 3.8vw, 48px);
-  line-height: 1.09;
-  margin: 0 0 16px;
-  letter-spacing: -.035em;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.04;
+  margin: 0 0 10px;
+  letter-spacing: -.04em;
   font-weight: 800;
 }
 
+.role {
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 16px;
+  letter-spacing: -.01em;
+}
 .accent { color: var(--accent) }
 
 .lead {
   font-size: 16px;
   color: var(--muted);
   margin: 0 0 20px;
-  max-width: 58ch;
+  max-width: 60ch;
   line-height: 1.65;
 }
 .muted { color: var(--muted) }
 
-.cta { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 26px }
+.cta { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 6px }
 
-.miniStats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 10px;
-}
-.stat {
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--panel);
-}
-.stat .k { font-weight: 700; font-size: 13px; margin-bottom: 3px }
-.stat .v { color: var(--muted); font-size: 12px }
 
+/* ─────────────────────────── Card base ───────────────────────── */
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--panel);
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 20px;
 }
 
 
-.codeCard { padding: 14px }
+/* ─────────────── Hero identity card (carte profil) ───────────── */
+.idCard { padding: 20px }
 
-.cardTop {
+.idHead {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 14px;
+}
+.idAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -.02em;
+  flex-shrink: 0;
+}
+.idName { margin: 0; font-weight: 800; font-size: 16px; letter-spacing: -.01em }
+.idTitle { margin: 2px 0 0; font-size: 13px }
+
+.idList { list-style: none; margin: 0; padding: 0 }
+.idRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.idIcon { width: 18px; text-align: center; font-size: 14px; flex-shrink: 0 }
+.idLabel {
+  width: 92px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding-top: 2px;
+}
+.idValue { font-size: 13.5px; font-weight: 500 }
+
+.idTrophy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  border: 1px solid color-mix(in oklab, var(--gold) 40%, transparent);
+  background: var(--gold-dim);
+  color: var(--text);
+  font-size: 13.5px;
+  transition: transform .12s, border-color .15s;
+}
+.idTrophy:hover { transform: translateY(-1px); border-color: var(--gold) }
+.idTrophy strong { color: var(--gold) }
+.idTrophyIcon { font-size: 18px; flex-shrink: 0 }
+
+
+/* ─────────────────────────── Sections ────────────────────────── */
+.section { padding: 34px 0 }
+.sectionHead { margin: 0 0 20px }
+h2 { font-size: 23px; font-weight: 800; margin: 0 0 6px; letter-spacing: -.02em }
+.sub { margin: 0; color: var(--muted); font-size: 15px }
+.kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+
+/* ───────────────── « Ce que je recherche » ───────────────────── */
+.seek {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 26px;
+  align-items: center;
+}
+.seek h2 { font-size: clamp(20px, 2.6vw, 27px); margin: 4px 0 8px; line-height: 1.15 }
+.seekIntro .btn { margin-top: 16px }
+.seekIntro .sub { margin-bottom: 4px }
+
+.seekGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.seekItem {
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--panel);
+}
+.seekItem .k {
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.seekItem .v { font-size: 13.5px; font-weight: 500; line-height: 1.4 }
+
+
+/* ─────────────────────────── Timeline ────────────────────────── */
+.timeline { display: grid; gap: 10px }
+.tItem {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 15px 17px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  transition: border-color .15s, transform .12s;
+}
+.tItem:hover {
+  border-color: color-mix(in oklab, var(--accent) 32%, transparent);
+  transform: translateY(-1px);
+}
+.tDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 7px;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-dim);
+  flex-shrink: 0;
+}
+.tTop {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
 }
-
-.pill {
-  display: inline-flex;
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--panel);
+.tContent h3 { margin: 0 0 4px; font-size: 15.5px; font-weight: 700 }
+.tContent p { margin: 4px 0 0; color: var(--muted); font-size: 14px }
+.tDate {
+  flex-shrink: 0;
   font-size: 12px;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
 }
-.pill.ghost { background: transparent }
 
-.code {
-  margin: 0;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,.35);
-  overflow: auto;
-  font-size: 12.5px;
-  line-height: 1.65;
-  color: color-mix(in oklab, var(--text) 88%, transparent);
+
+/* ─────────────────────────── Skills ──────────────────────────── */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
 }
-[data-theme="light"] .code { background: rgba(10,20,60,.06) }
+.card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700 }
+.card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px }
+.card li { margin: 6px 0 }
 
-.cardBottom { display: flex; justify-content: flex-end; margin-top: 10px }
-.hint { font-size: 12px; color: var(--muted) }
 
-.section { padding: 32px 0 }
-.sectionHead { margin: 0 0 20px }
-h2 { font-size: 22px; font-weight: 800; margin: 0 0 6px; letter-spacing: -.02em }
-.sub { margin: 0; color: var(--muted); font-size: 15px }
-
+/* ─────────────────── Projects grid (JS-rendered) ─────────────── */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
-
 .project { position: relative; overflow: hidden; padding: 0 }
-
 .project .cover {
   aspect-ratio: 16/9;
   width: 100%;
   display: block;
   object-fit: cover;
   border-bottom: 1px solid var(--border);
-  filter: saturate(.9) brightness(.92);
+  filter: saturate(.95) brightness(.95);
 }
-
-.project .inner { padding: 14px 16px 16px }
+.project .inner { padding: 15px 17px 17px }
 .project h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700 }
 .project p { margin: 0 0 12px; color: var(--muted); font-size: 14px }
 
@@ -301,127 +431,176 @@ h2 { font-size: 22px; font-weight: 800; margin: 0 0 6px; letter-spacing: -.02em 
   border: 1px solid var(--border);
   background: var(--panel);
   padding: 4px 9px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
-.project .links { display: flex; gap: 8px; flex-wrap: wrap }
+.links, .project .links, .award-links { display: flex; gap: 8px; flex-wrap: wrap }
 .linkBtn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 12px;
-  border-radius: 7px;
+  padding: 8px 13px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text);
   font-size: 13px;
-  font-weight: 500;
-  transition: background .15s, border-color .15s;
+  font-weight: 600;
+  transition: background .15s, border-color .15s, transform .12s;
 }
 .linkBtn:hover {
   background: var(--panel);
-  border-color: rgba(59,130,246,.3);
+  border-color: color-mix(in oklab, var(--accent) 35%, transparent);
+  transform: translateY(-1px);
 }
 
-.skills {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 14px;
-}
-.card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700 }
-.card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px }
-.card li { margin: 6px 0 }
 
+/* ──────────────── Award — Trophée NSI / Défi Nature ──────────── */
+.award {
+  border-color: color-mix(in oklab, var(--gold) 38%, var(--border));
+  background:
+    linear-gradient(180deg, var(--gold-dim) 0%, transparent 42%),
+    var(--panel);
+}
+.awardHead { margin-bottom: 12px }
+.awardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--gold-dim);
+  border: 1px solid color-mix(in oklab, var(--gold) 45%, transparent);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.award h3 { margin: 0; font-size: 16.5px; font-weight: 700; line-height: 1.35 }
+.award p { font-size: 14px; margin: 0 0 14px }
+.award-tag {
+  color: var(--gold);
+  border-color: color-mix(in oklab, var(--gold) 45%, transparent);
+  background: var(--gold-dim);
+  font-weight: 600;
+}
+.awardList { margin: 4px 0 16px; padding-left: 18px; font-size: 14px }
+.awardList li { margin: 6px 0 }
+
+
+/* ─────────────── Résultats Terminale (compact) ───────────────── */
 .blockLabel {
   font-size: 11.5px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: .07em;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-weight: 600;
 }
-.resultsWrap { margin-bottom: 26px }
-.results {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap: 10px;
-}
-.result {
-  text-align: center;
-  padding: 20px 12px 16px;
-}
-.rSubject { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 500 }
-.rScore {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -.03em;
-  line-height: 1;
-}
-.rMax { font-size: 14px; font-weight: 500; color: var(--muted) }
-.rRank {
-  font-size: 12px;
-  color: var(--accent);
-  font-weight: 650;
-  margin-top: 8px;
-}
-
-/* ─── Timeline ─── */
-.timeline { display: grid; gap: 10px }
-.tItem {
-  display: grid;
-  grid-template-columns: 14px 1fr;
-  gap: 14px;
-  align-items: start;
-  padding: 14px 16px;
+.miniResults {
+  padding: 18px 20px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   background: var(--panel);
-  transition: border-color .15s;
 }
-.tItem:hover { border-color: rgba(59,130,246,.28) }
-.tDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-top: 6px;
-  background: var(--accent);
-  box-shadow: 0 0 0 5px var(--accent-dim);
-  flex-shrink: 0;
+.miniRow { display: flex; flex-wrap: wrap; gap: 8px 10px }
+.miniResult {
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
 }
-.tContent h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700 }
-.tContent p { margin: 0; color: var(--muted); font-size: 14px }
-
-/* ─── Contact ─── */
-.contact { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px }
-.foot { font-size: 14px; margin: 0 }
-.foot a:hover { color: var(--accent) }
+.miniResult b { color: var(--text); font-weight: 800; font-size: 15px; letter-spacing: -.02em }
+.miniResult em { font-style: normal; opacity: .8 }
 
 
+/* ─────────────── À côté : langues & centres d'intérêt ────────── */
+.extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.langList { list-style: none; margin: 0; padding: 0 }
+.langRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.langRow:first-child { border-top: none }
+.lang { font-weight: 600 }
+.langLevel { color: var(--muted); font-size: 13px; text-align: right }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px }
+.chip {
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+}
+.todoChip { border-style: dashed; color: var(--muted) }
+.handballNote { margin: 14px 0 0; font-size: 13.5px }
+
+
+/* ─────────────────────────── Contact ─────────────────────────── */
+.contact { display: flex; gap: 10px; flex-wrap: wrap; align-items: center }
+
+
+/* ─────────────────────────── Footer ──────────────────────────── */
 .footer {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
-  margin-top: 24px;
+  margin-top: 28px;
   font-size: 14px;
 }
 .link { text-decoration: underline; text-underline-offset: 4px }
+.link:hover { color: var(--accent) }
 
 
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease }
+/* ─────────── Marqueur « à préciser » (placeholders) ──────────── */
+.todo {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px dashed color-mix(in oklab, var(--accent) 50%, transparent);
+  border-radius: 5px;
+  padding: 0 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────── Reveal ──────────────────────────── */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .45s ease, transform .45s ease }
 .reveal.in { opacity: 1; transform: translateY(0) }
 
 
+/* ─────────────────────────── Responsive ──────────────────────── */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr }
+  .hero { grid-template-columns: 1fr; padding-top: 32px }
+  .seek { grid-template-columns: 1fr; gap: 18px }
   .grid { grid-template-columns: 1fr }
   .skills { grid-template-columns: 1fr }
-  .results { grid-template-columns: repeat(2, minmax(0,1fr)) }
+  .extras { grid-template-columns: 1fr }
   .nav { display: none }
   .mobileOnly { display: inline-flex }
-  .miniStats { grid-template-columns: 1fr }
+}
+
+@media (max-width: 480px) {
+  .seekGrid { grid-template-columns: 1fr }
+  .idLabel { width: 78px }
 }
 
 @media (prefers-reduced-motion: reduce) {
