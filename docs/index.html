@@ -1,400 +1,749 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Antonin CHE — étudiant en Licence MPCI (Mathématiques, Physique, Chimie, Informatique) à Aix-Marseille Université. Profil scientifique orienté maths & informatique, lauréat du Trophée NSI avec Défi Nature. En recherche d'un stage de L1." />
-  <meta name="author" content="Antonin CHE" />
-  <title>Antonin CHE — Étudiant en Licence MPCI · Portfolio</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Antonin CHE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap">
+<script>
+  /* Langue (FR/EN) et thème choisis avant l'affichage, pour éviter un flash. */
+  (function () {
+    var r = document.documentElement, l = null, t = null, h = (location.hash || "").toLowerCase();
+    try { l = localStorage.getItem("ac-lang"); t = localStorage.getItem("ac-theme"); } catch (e) {}
+    if (h === "#en" || h === "#fr") l = h.slice(1);
+    if (l !== "fr" && l !== "en") l = /^fr/i.test(navigator.language || "fr") ? "fr" : "en";
+    r.setAttribute("data-lang", l);
+    r.lang = l;
+    if (t === "light" || t === "dark") r.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  /* Mise en page : titres de section dans la colonne de gauche, contenu au centre,
+     figures au trait dans la marge de droite (grand écran). Une seule couleur d'accent. */
+  :root {
+    --bg: #FCFCFD;
+    --surface: #F3F5F8;
+    --ink: #15181D;
+    --ink-2: #4A515C;
+    --ink-3: #8C939E;
+    --rule: #DDE1E7;
+    --accent: #1F4FA0;
+    --accent-2: #173C7A;
+    --accent-ink: #FFFFFF;
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    --f-display: "STIX Two Text", "STIX Two", "Times New Roman", Times, serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  <link rel="stylesheet" href="css/styles.css" />
+    --pad: 16px;
+    --mcol: 0px;
+    --gap: 40px;
+    --top-h: 56px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101317;
+      --surface: #171B21;
+      --ink: #E6E9ED;
+      --ink-2: #A7AEB8;
+      --ink-3: #6B7480;
+      --rule: #282E36;
+      --accent: #8FB1F0;
+      --accent-2: #B4CBF6;
+      --accent-ink: #0E1726;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101317;
+    --surface: #171B21;
+    --ink: #E6E9ED;
+    --ink-2: #A7AEB8;
+    --ink-3: #6B7480;
+    --rule: #282E36;
+    --accent: #8FB1F0;
+    --accent-2: #B4CBF6;
+    --accent-ink: #0E1726;
+    color-scheme: dark;
+  }
 
-  <!-- Applique le thème avant le rendu pour éviter tout flash (clair/sombre) -->
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem("antonin_theme");
-        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        document.documentElement.dataset.theme = t;
-      } catch (e) {
-        document.documentElement.dataset.theme = "light";
-      }
-    })();
-  </script>
-</head>
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+  :root:not([data-lang="en"]) [data-l="en"],
+  :root[data-lang="en"] [data-l="fr"] { display: none !important; }
 
-<body>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Retour en haut">
-      <span class="dot"></span>
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--accent-2); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, dd { text-wrap: pretty; }
+  .nw { white-space: nowrap; }
+
+  .skip { position: absolute; left: 12px; top: -80px; z-index: 50; padding: 10px 14px; border-radius: 6px; background: var(--ink); color: var(--bg); font-weight: 600; text-decoration: none; }
+  .skip:focus { top: calc(env(safe-area-inset-top, 0px) + 10px); color: var(--bg); }
+
+  /* ---------- barre du haut ---------- */
+  .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .top__in { max-width: 1180px; margin-inline: auto; padding-inline: var(--pad); height: var(--top-h); display: flex; align-items: center; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 600; white-space: nowrap; }
+  .brand:hover { color: var(--ink); }
+  .brand__tile { position: relative; box-sizing: border-box; width: 28px; height: 30px; padding-top: 5px; border: 1.5px solid var(--ink); border-radius: 3px; display: grid; place-items: center; font: 600 14px/1 var(--f-display); }
+  .brand__tile small { position: absolute; top: 2px; left: 3px; font: 500 7px/1 var(--f-body); }
+  .nav { display: none; gap: 22px; margin-left: auto; }
+  .nav a { color: var(--ink-2); text-decoration: none; font-size: .95rem; }
+  .nav a:hover { color: var(--ink); text-decoration: underline; }
+  .tools { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .seg button { min-height: 34px; padding: 0 10px; border: 0; background: transparent; color: var(--ink-2); font: 600 .78rem/1 var(--f-body); letter-spacing: .04em; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .icon-btn { width: 36px; height: 36px; padding: 0; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; }
+  .icon-btn svg { width: 17px; height: 17px; }
+  .i-sun { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .i-sun { display: block; }
+    :root:not([data-theme="light"]) .i-moon { display: none; }
+  }
+  :root[data-theme="dark"] .i-sun { display: block; }
+  :root[data-theme="dark"] .i-moon { display: none; }
+
+  /* ---------- grille ---------- */
+  .page { max-width: 1180px; margin-inline: auto; padding-inline: var(--pad); }
+  .row { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: var(--gap); }
+  .sec { padding-block: 40px; border-top: 1px solid var(--rule); scroll-margin-top: calc(var(--top-h) + 8px); }
+  .sec__label { margin: 0 0 16px; font: 600 1.4rem/1.2 var(--f-display); }
+  .sec__body { min-width: 0; }
+  .aside { display: none; color: var(--ink-3); }
+  .fig { display: block; width: 100%; height: auto; overflow: visible; }
+  .fig__t { font: 400 12px var(--f-body); }
+  .fig__mono { font: 500 10.5px var(--f-mono); }
+  .fig__it { font: italic 400 15px var(--f-display); }
+
+  /* ---------- en-tête ---------- */
+  .hero { padding-block: 56px 48px; }
+  .hero h1 { margin: 0; font: 600 clamp(2.6rem, 7vw, 4rem)/1.02 var(--f-display); letter-spacing: -.01em; }
+  .lead { margin: 18px 0 0; max-width: 34em; font-size: 1.2rem; line-height: 1.55; }
+  .seek { margin: 12px 0 0; max-width: 36em; }
+  .seek strong { font-weight: 600; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .btn { display: inline-flex; align-items: center; min-height: 42px; padding: 0 16px; border: 1px solid var(--ink-3); border-radius: 6px; color: var(--ink); font: 600 .95rem/1 var(--f-body); text-decoration: none; }
+  .btn:hover { border-color: var(--ink); color: var(--ink); background: var(--surface); }
+  .btn--main { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+  .btn--main:hover { border-color: var(--accent-2); background: var(--accent-2); color: var(--accent-ink); }
+  .facts { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 6px; color: var(--ink-2); font-size: 1rem; }
+  .facts li { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 10px; }
+  .facts li::before { content: ""; width: 12px; height: 1px; margin-top: .85em; background: var(--ink-3); }
+
+  /* Fig. 1 : Monte-Carlo */
+  .mc { margin: 36px 0 0; max-width: 340px; }
+  .mc canvas { display: block; width: 100%; aspect-ratio: 1 / 1; max-width: 100%; }
+  .mc figcaption { margin-top: 10px; color: var(--ink-2); font-size: .86rem; line-height: 1.5; }
+  .mc figcaption b { color: var(--ink); font-weight: 600; }
+  .mc__res { display: block; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .mc__btn { margin-top: 10px; min-height: 34px; padding: 0 12px; border: 1px solid var(--rule); border-radius: 6px; background: transparent; color: var(--ink); font: 500 .85rem/1 var(--f-body); cursor: pointer; }
+  .mc__btn:hover { border-color: var(--ink-3); background: var(--surface); }
+
+  /* ---------- projets ---------- */
+  .projects { list-style: none; margin: 0; padding: 0; }
+  .proj { padding-block: 22px; border-top: 1px solid var(--rule); }
+  .proj:first-child { padding-top: 0; border-top: 0; }
+  .proj h3 { margin: 0; font: 600 1.3rem/1.25 var(--f-display); }
+  .proj p { margin: 6px 0 0; max-width: 64ch; }
+  .proj .award { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 3px 10px; border: 1px solid var(--rule); border-radius: 4px; color: var(--ink-2); font-size: .85rem; line-height: 1.4; }
+  .award svg { flex: none; width: 14px; height: 16px; }
+  .stack { color: var(--ink-2); font-size: .92rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 8px; font-weight: 500; font-size: .95rem; }
+  .more { margin-top: 6px; padding-top: 22px; border-top: 1px solid var(--rule); }
+  .more h3 { margin: 0 0 12px; color: var(--ink-2); font: 600 .95rem/1.3 var(--f-body); }
+  .more ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px 28px; }
+  .more a { font-weight: 600; font-size: .98rem; }
+  .more__d { display: block; color: var(--ink-2); font-size: .9rem; line-height: 1.45; }
+
+  /* ---------- publication ---------- */
+  .ref { margin: 0; padding-left: 1.5em; text-indent: -1.5em; font: 400 1.12rem/1.6 var(--f-display); }
+  .ref a { overflow-wrap: anywhere; }
+  .pub-sum { margin: 14px 0 0; max-width: 64ch; }
+  .pub-meta { margin: 8px 0 0; color: var(--ink-2); font-size: .92rem; }
+
+  /* ---------- listes datées ---------- */
+  .group + .group { margin-top: 30px; }
+  .group__t { margin: 0 0 14px; color: var(--ink-2); font: 600 .95rem/1.3 var(--f-body); }
+  .entries { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .entry { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .entry__when { color: var(--ink-2); font-size: .92rem; font-variant-numeric: tabular-nums; }
+  .entry h3 { margin: 0; font: 600 1.12rem/1.35 var(--f-display); }
+  .entry p { margin: 4px 0 0; max-width: 64ch; }
+  .entry .links { margin-top: 6px; }
+
+  /* ---------- compétences ---------- */
+  .skills { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px 24px; }
+  .skills dt { color: var(--ink-2); font-size: .92rem; font-weight: 600; }
+  .skills dd { margin: 0 0 14px; }
+
+  /* ---------- LinkedIn ---------- */
+  .posts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 16px; }
+  .post { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 6px; }
+  .post__top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; color: var(--ink-2); font-size: .88rem; }
+  .post__kind { color: var(--ink); font-weight: 600; }
+  .post__from { margin: 0; color: var(--ink-2); font-size: .92rem; }
+  .post__text { margin: 0; }
+  .post__note { margin: 0; color: var(--ink-2); font-size: .85rem; }
+  .post__link { font-weight: 600; }
+  .allact { margin: 16px 0 0; font-size: .95rem; }
+
+  /* ---------- à côté, contact, pied ---------- */
+  .prose p { margin: 0; max-width: 64ch; }
+  .prose p + p { margin-top: 10px; }
+  .mail { margin: 0; font: 500 clamp(1.15rem, 4.2vw, 1.6rem)/1.3 var(--f-display); overflow-wrap: anywhere; }
+  .copy { margin-top: 12px; min-height: 38px; padding: 0 14px; border: 1px solid var(--ink-3); border-radius: 6px; background: transparent; color: var(--ink); font: 600 .9rem/1 var(--f-body); cursor: pointer; }
+  .copy:hover { border-color: var(--ink); background: var(--surface); }
+  .status { min-height: 1.4em; margin: 8px 0 0; color: var(--ink-2); font-size: .9rem; }
+  .contact-links { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  .foot { padding-block: 24px 44px; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: .88rem; }
+  .foot p { margin: 0; }
+
+  /* ---------- tailles d'écran ---------- */
+  @media (max-width: 759px) {
+    .mc { max-width: 280px; }
+  }
+  @media (min-width: 560px) {
+    .more ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .entry { grid-template-columns: 8.5rem minmax(0, 1fr); column-gap: 20px; }
+    .entry__when { padding-top: 3px; }
+    .skills { grid-template-columns: 8.5rem minmax(0, 1fr); }
+    .skills dt { padding-top: 2px; }
+  }
+  @media (min-width: 640px) {
+    .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 760px) {
+    :root { --pad: 28px; --mcol: 150px; }
+    .nav { display: flex; }
+    .tools { margin-left: 18px; }
+    .row { grid-template-columns: var(--mcol) minmax(0, 1fr); }
+    .sec__label { margin: 0; padding-top: 1px; font-size: 1.3rem; }
+    .hero__main, .mc, .sec__body, .foot__body { grid-column: 2; }
+  }
+  @media (min-width: 1100px) {
+    :root { --mcol: 160px; }
+    .row { grid-template-columns: var(--mcol) minmax(0, 1fr) 200px; }
+    .hero { grid-template-columns: var(--mcol) minmax(0, 1fr) 300px; }
+    .mc { grid-column: 3; grid-row: 1; margin: 6px 0 0; }
+    .aside { display: block; padding: 4px 0 0 28px; }
+    .aside .fig { max-width: 150px; }
+  }
+
+  @media print {
+    .top, .skip, .mc__btn, .copy, .status, .aside { display: none !important; }
+    body { background: #FFFFFF; color: #000000; font-size: 10.5pt; }
+    .sec { padding-block: 12px; break-inside: avoid; }
+    a { color: #000000; }
+  }
+</style>
+<!--
+  MODIFIER CE SITE
+  - Chaque texte existe deux fois : data-l="fr" (français) et data-l="en" (anglais). Modifie les deux.
+  - Section LinkedIn : cherche « LINKEDIN » plus bas et remplace le type, la date, le texte et le lien des deux cartes.
+  - La figure 1 (estimation de π par Monte-Carlo) est dessinée par le script en bas de page.
+-->
+<a class="skip" href="#projets"><span data-l="fr">Aller aux projets</span><span data-l="en">Skip to projects</span></a>
+
+<header class="top">
+  <div class="top__in">
+    <a class="brand" href="#haut">
+      <span class="brand__tile" aria-hidden="true"><small>89</small>Ac</span>
       <span>Antonin CHE</span>
     </a>
-
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="#profil">Profil</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#skills">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#defi-nature">Trophée NSI</a>
+    <nav class="nav" id="nav" aria-label="Sections de la page">
+      <a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#parcours"><span data-l="fr">Parcours</span><span data-l="en">Background</span></a>
       <a href="#contact">Contact</a>
     </nav>
-
-    <div class="actions">
-      <button id="themeBtn" class="btn ghost" type="button" aria-label="Changer le thème">
-        <span class="icon" aria-hidden="true">☾</span>
+    <div class="tools">
+      <div class="seg" id="lang-group" role="group" aria-label="Langue du site">
+        <button type="button" id="lang-fr" data-lang-btn="fr" lang="fr" aria-pressed="true">FR</button>
+        <button type="button" id="lang-en" data-lang-btn="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme-btn" aria-label="Passer en mode sombre" title="Passer en mode sombre">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
       </button>
-      <a class="btn primary" href="https://github.com/antoninche" target="_blank" rel="noreferrer">GitHub</a>
-      <button id="menuBtn" class="btn ghost mobileOnly" type="button" aria-label="Ouvrir le menu">☰</button>
     </div>
-  </header>
-
-  <div id="mobileMenu" class="mobileMenu" hidden>
-    <a href="#profil">Profil</a>
-    <a href="#parcours">Parcours</a>
-    <a href="#skills">Compétences</a>
-    <a href="#projets">Projets</a>
-    <a href="#defi-nature">Trophée NSI</a>
-    <a href="#contact">Contact</a>
   </div>
+</header>
 
-  <main id="top">
-    <!-- ─────────────────────────── HERO / PROFIL ─────────────────────────── -->
-    <section id="profil" class="hero">
-      <div class="heroLeft">
-        <p class="badge">🎓 Étudiant en Licence MPCI · Aix-Marseille Université</p>
+<div class="page">
+<main>
 
-        <h1>
-          Antonin CHE
-        </h1>
-        <p class="role">
-          Profil scientifique polyvalent — <span class="accent">maths</span> &amp;
-          <span class="accent">informatique</span> avant tout, cap
-          <span class="accent">ingénieur / recherche</span>.
-        </p>
-
-        <p class="lead">
-          Étudiant en <strong>Licence MPCI</strong> (Mathématiques, Physique, Chimie, Informatique).
-          Je conçois des projets en <strong>Python</strong>, <strong>web</strong> et <strong>bases de données</strong> :
-          architecture propre, code modulaire, goût de la rigueur et de la compétition.
-          <span class="muted">Actuellement en recherche d'un <strong>stage de L1</strong>.</span>
-        </p>
-
-        <div class="cta">
-          <a class="btn primary" href="#projets">Voir mes projets</a>
-          <a class="btn ghost" href="#contact">Me contacter</a>
-        </div>
+  <!-- ============================== EN-TÊTE ============================== -->
+  <section class="row hero" id="haut">
+    <div class="hero__main">
+      <h1>Antonin CHE</h1>
+      <p class="lead" data-l="fr">Étudiant en première année de licence MPCI (mathématiques, physique, chimie et informatique) à Aix-Marseille Université. J’aime surtout les maths et la programmation.</p>
+      <p class="lead" data-l="en">First-year student in the MPCI bachelor’s programme (mathematics, physics, chemistry and computer science) at Aix-Marseille University, France. Maths and programming are what I enjoy most.</p>
+      <p class="seek" data-l="fr">Je cherche <strong>un stage d’un mois pour l’été 2027</strong>, en maths ou en informatique, en laboratoire ou en entreprise, en France ou à l’étranger.</p>
+      <p class="seek" data-l="en">I’m looking for <strong>a one-month internship in summer 2027</strong>, in maths or computer science, in a lab or a company, in France or abroad.</p>
+      <div class="cta">
+        <a class="btn btn--main" data-mail href="#contact"><span data-l="fr">Écrire un e-mail</span><span data-l="en">Send an email</span></a>
+        <a class="btn" href="https://github.com/antoninche" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/antonin-chenavaz-9b9215421/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
+      <ul class="facts">
+        <li><span data-l="fr">Prix «&nbsp;Nature &amp; Informatique&nbsp;» des Trophées NSI 2026, académie d’Aix-Marseille</span><span data-l="en">“Nature &amp; Informatique” prize, Trophées NSI 2026 (French high-school computer science contest), Aix-Marseille region</span></li>
+        <li><span data-l="fr">Co-auteur d’un article publié dans <i>Economics Letters</i> (2026)</span><span data-l="en">Co-author of a paper published in <i>Economics Letters</i> (2026)</span></li>
+        <li><span data-l="fr">Bac général 2026, spécialités mathématiques et NSI, mention Très Bien</span><span data-l="en">French baccalauréat 2026, maths and computer science majors, highest honours (mention Très Bien)</span></li>
+      </ul>
+    </div>
+    <figure class="mc" id="mc">
+      <canvas id="mc-canvas" width="300" height="300" role="img" aria-label="Nuage de points aléatoires dans un carré unité, avec le quart de disque de rayon 1"></canvas>
+      <figcaption>
+        <span data-l="fr"><b>Fig. 1.</b> Estimation de π par la méthode de Monte-Carlo.</span><span data-l="en"><b>Fig. 1.</b> Estimating π with the Monte Carlo method.</span>
+        <span class="mc__res" id="mc-res" aria-live="polite"></span>
+      </figcaption>
+      <button type="button" class="mc__btn" id="mc-btn"><span data-l="fr">Nouveau tirage</span><span data-l="en">New draw</span></button>
+    </figure>
+  </section>
 
-      <div class="heroRight">
-        <div class="card idCard reveal">
-          <div class="idHead">
-            <span class="idAvatar" aria-hidden="true">AC</span>
-            <div>
-              <p class="idName">Antonin CHE</p>
-              <p class="idTitle muted">Étudiant · Licence MPCI</p>
-            </div>
-          </div>
-
-          <ul class="idList">
-            <li class="idRow">
-              <span class="idIcon" aria-hidden="true">🎓</span>
-              <span class="idLabel">Formation</span>
-              <span class="idValue">Licence MPCI — AMU (Saint-Jérôme), rentrée 2026</span>
-            </li>
-            <li class="idRow">
-              <span class="idIcon" aria-hidden="true">📍</span>
-              <span class="idLabel">Localisation</span>
-              <span class="idValue">Marseille</span>
-            </li>
-            <li class="idRow">
-              <span class="idIcon" aria-hidden="true">💻</span>
-              <span class="idLabel">Stack</span>
-              <span class="idValue">Python · HTML/CSS/JS · SQL</span>
-            </li>
-            <li class="idRow">
-              <span class="idIcon" aria-hidden="true">🎯</span>
-              <span class="idLabel">Objectif</span>
-              <span class="idValue">École d'ingénieur / recherche</span>
-            </li>
-          </ul>
-
-          <a class="idTrophy" href="#defi-nature">
-            <span class="idTrophyIcon" aria-hidden="true">🏆</span>
-            <span><strong>Lauréat du Trophée NSI</strong> — projet Défi Nature</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─────────────────────── CE QUE JE RECHERCHE ──────────────────────── -->
-    <section id="recherche" class="section">
-      <div class="card seek reveal">
-        <div class="seekIntro">
-          <p class="kicker">🎯 Ce que je recherche</p>
-          <h2>Un stage de L1 pour mettre mes compétences en pratique.</h2>
-          <p class="sub">Ouvert, motivé et disponible pour un premier stage en entreprise ou en labo.</p>
-          <a class="btn primary" href="#contact">Me contacter</a>
-        </div>
-
-        <div class="seekGrid">
-          <div class="seekItem">
-            <div class="k">Domaine</div>
-            <!-- À CONFIRMER : ajuster le domaine visé -->
-            <div class="v">Développement · Data · Informatique scientifique </div>
-          </div>
-          <div class="seekItem">
-            <div class="k">Période</div>
-            <!-- À CONFIRMER : période du stage -->
-            <div class="v">Été 2027 </div>
-          </div>
-          <div class="seekItem">
-            <div class="k">Durée</div>
-            <!-- À CONFIRMER : durée souhaitée -->
-            <div class="v">2 à 8 semaines <span class="todo">à préciser</span></div>
-          </div>
-          <div class="seekItem">
-            <div class="k">Lieu</div>
-            <!-- À CONFIRMER : lieu / mobilité -->
-            <div class="v">Marseille ou France</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────────────────── FORMATION & PARCOURS ───────────────────── -->
-    <section id="parcours" class="section">
-      <div class="sectionHead">
-        <h2>Formation &amp; parcours</h2>
-        <p class="sub">Du lycée à l'université, du plus récent au plus ancien.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="tItem reveal">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Licence MPCI — Aix-Marseille Université (Saint-Jérôme)</h3>
-              <span class="tDate">Depuis 2026</span>
-            </div>
-            <p>
-              Admis en <strong>Licence sélective MPCI</strong> (Mathématiques, Physique, Chimie,
-              Informatique). Formation pluridisciplinaire exigeante, tremplin vers une école
-              d'ingénieur ou un master recherche.
-            </p>
-          </div>
-        </div>
-
-        <div class="tItem reveal">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Baccalauréat général — spécialité NSI</h3>
-              <span class="tDate">2026</span>
-            </div>
-            <p>
-              Lycée Marseilleveyre (Marseille). Spécialité Mathématiques-NSI (Numérique et Sciences
-              Informatiques). Projets Python, web et bases de données.
-            </p>
-          </div>
-        </div>
-
-        <div class="tItem reveal">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Concours &amp; compétitions</h3>
-              <span class="tDate">Lycée</span>
-            </div>
-            <p>
-              <strong>Trophée NSI</strong> (lauréat territorial) · Nuit du Code <strong>×3</strong> ·
-              Concours Général NSI — l'habitude de la pression, du travail en équipe et du défi.
-            </p>
-          </div>
-        </div>
-
-        <div class="tItem reveal">
-          <div class="tDot" aria-hidden="true"></div>
-          <div class="tContent">
-            <div class="tTop">
-              <h3>Stage en service informatique</h3>
-              <span class="tDate">Seconde</span>
-            </div>
-            <p>
-              Immersion professionnelle IT : infrastructure, outils internes, environnement de
-              production. Premier contact avec le monde de l'entreprise.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────────────────────── COMPÉTENCES ────────────────────────── -->
-    <section id="skills" class="section">
-      <div class="sectionHead">
-        <h2>Compétences</h2>
-        <p class="sub">Ce que je sais faire, et ce que je fais bien.</p>
-      </div>
-
-      <div class="skills">
-        <div class="card reveal">
-          <h3>Informatique &amp; Python</h3>
-          <ul>
-            <li>Algorithmique, POO, structures de données</li>
-            <li>Projets Python : bots, simulations, jeux</li>
-            <li>Architecture modulaire, logs, configuration</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>Web &amp; données</h3>
-          <ul>
-            <li>HTML / CSS / JS, interfaces responsive</li>
-            <li>SQL &amp; modèle relationnel (SQLite)</li>
-            <li>CRUD, authentification simple, sites statiques</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>Fondamentaux scientifiques</h3>
-          <ul>
-            <li>Mathématiques : algèbre, analyse, probabilités &amp; stats</li>
-            <li>Bases pluridisciplinaires (maths, physique, chimie)</li>
-            <li>Rigueur, méthode, résolution de problèmes</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ────────────────────────────── PROJETS ───────────────────────────── -->
-    <section id="projets" class="section">
-      <div class="sectionHead">
-        <h2>Projets</h2>
-        <p class="sub">Sélection de projets représentatifs — code disponible sur GitHub.</p>
-      </div>
-
-      <div id="projectsGrid" class="grid"></div>
-    </section>
-
-    <!-- ─────────────────────── TROPHÉE NSI · DÉFI NATURE ─────────────────── -->
-    <section id="defi-nature" class="section">
-      <div class="sectionHead">
-        <h2>🏆 Trophée NSI — Défi Nature</h2>
-        <p class="sub">Projet primé lors des sélections territoriales.</p>
-      </div>
-
-      <div class="card award reveal">
-        <div class="awardHead">
-          <span class="awardBadge">🏆 Lauréat territorial</span>
-          <h3>Sélections territoriales du Trophée NSI — catégorie « Nature et Informatique »</h3>
-        </div>
-
-        <p class="muted">
-          Le projet <strong>Défi Nature</strong> a été sélectionné comme
-          <strong>gagnant des sélections territoriales du Trophée NSI</strong>.
-          Un jeu recréé en Python combinant développement logiciel, simulation de stratégies
-          et sensibilisation à la biodiversité.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Pygame</span>
-          <span class="tag">IA</span>
-          <span class="tag">Simulations</span>
-          <span class="tag award-tag">🏆 Trophée NSI</span>
-        </div>
-
-        <ul class="awardList muted">
-          <li>Interface complète avec historique de jeu</li>
-          <li>Plusieurs stratégies d'IA (heuristiques et probabilistes)</li>
-          <li>Module de simulations statistiques</li>
-          <li>Architecture moteur / interface séparée</li>
-        </ul>
-
-        <div class="award-links">
-          <a class="linkBtn" href="https://github.com/NSI-Term-2025-2026/defi-nature-trophee-nsi" target="_blank" rel="noreferrer">Voir le repo ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────────────── RÉSULTATS TERMINALE (compact) ───────────────── -->
-    <section id="resultats" class="section">
-      <div class="sectionHead">
-        <h2>Avant l'université</h2>
-        <p class="sub">Quelques résultats de Terminale, à titre indicatif.</p>
-      </div>
-
-      <div class="miniResults reveal">
-        <p class="blockLabel">Bac blanc — Terminale (2025–2026)</p>
-        <div class="miniRow">
-          <span class="miniResult"><b>20</b>/20 · Mathématiques</span>
-          <span class="miniResult"><b>20</b>/20 · NSI</span>
-          <span class="miniResult"><b>18</b>/20 · Philosophie</span>
-          <span class="miniResult"><b>17</b>/20 · Français <em>(anticipé)</em></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ──────────────── LANGUES & CENTRES D'INTÉRÊT (À côté) ─────────────── -->
-    <section id="extras" class="section">
-      <div class="sectionHead">
-        <h2>À côté</h2>
-        <p class="sub">Langues et centres d'intérêt.</p>
-      </div>
-
-      <div class="extras">
-        <div class="card reveal">
-          <h3>Langues</h3>
-          <ul class="langList">
-            <li class="langRow"><span class="lang">Français</span><span class="langLevel">Langue maternelle -- C2</span></li>
-            <!-- À CONFIRMER : niveau d'anglais réel -->
-            <li class="langRow"><span class="lang">Anglais</span><span class="langLevel">Intermédiaire / avancé -- B1<span class="todo">à préciser</span></span></li>
-            <!-- À CONFIRMER : ajouter une autre langue si besoin (ex. Espagnol) -->
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>Centres d'intérêt</h3>
-          <div class="chips">
-            <span class="chip">🤾 Handball — Régional Élite (Région SUD)</span>
-            <span class="chip">💻 Développement &amp; nouvelles technos</span>
-            <!-- À CONFIRMER : ajouter d'autres centres d'intérêt -->
-            <span class="chip todoChip">➕ à compléter</span>
-          </div>
-          <p class="muted handballNote">
-            Pratique compétitive de haut niveau : engagement associatif, esprit d'équipe et
-            goût de la compétition.
+  <!-- ============================== PROJETS ============================== -->
+  <section class="row sec" id="projets">
+    <h2 class="sec__label"><span data-l="fr">Projets</span><span data-l="en">Projects</span></h2>
+    <div class="sec__body">
+      <ul class="projects">
+        <li class="proj">
+          <p class="award">
+            <svg viewBox="0 0 14 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="5.5" r="4.3"/><path d="M4.4 9.1 3 15l4-2 4 2-1.4-5.9"/></svg>
+            <span data-l="fr">Prix «&nbsp;Nature &amp; Informatique&nbsp;», Trophées NSI 2026</span><span data-l="en">“Nature &amp; Informatique” prize, Trophées NSI 2026</span>
           </p>
-        </div>
+          <h3>Défi Nature</h3>
+          <p data-l="fr">Recréation en Python du jeu de cartes Défis Nature, à trois, en terminale NSI. À chaque manche, on compare le poids, la longueur ou la longévité de deux animaux. Le moteur de jeu est séparé de l’interface Pygame, et des robots aux stratégies variées (hasard, statistiques, <span class="nw">Monte-Carlo</span>) s’affrontent sur des milliers de parties&nbsp;; un module de simulations compare leurs résultats.</p>
+          <p data-l="en">A Python remake of the Défis Nature card game, built by a team of three in our final year of high school. Each round compares two animals by weight, length or lifespan. The game engine is separate from the Pygame interface, and bots with different strategies (random, statistics, Monte Carlo) play thousands of games against each other; a simulation module compares their results.</p>
+          <p class="stack">Python, Pygame, NumPy<span data-l="fr">, tests unitaires</span><span data-l="en">, unit tests</span></p>
+          <p class="links">
+            <a href="https://github.com/NSI-Term-2025-2026/defi-nature-trophee-nsi" target="_blank" rel="noopener noreferrer"><span data-l="fr">Code source</span><span data-l="en">Source code</span></a>
+            <a href="https://www.laprovence.com/article/economie/1713784269784/au-lycee-jean-perrin-a-marseille-les-trophees-nsi-recompensent-les-informaticiens-de-demain" target="_blank" rel="noopener noreferrer"><span data-l="fr">Article de La Provence</span><span data-l="en">La Provence article (in French)</span></a>
+            <a href="https://www.instagram.com/reel/DeJd5dIhb5S/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Interview vidéo</span><span data-l="en">Video interview (in French)</span></a>
+          </p>
+        </li>
+        <li class="proj">
+          <h3>Noob-Note</h3>
+          <p data-l="fr">Un mini-PRONOTE en ligne&nbsp;: un espace professeur (notes, statistiques par classe, emploi du temps, absences) et un espace élève (moyennes, rang, devoirs). Les mots de passe sont hachés avec PBKDF2.</p>
+          <p data-l="en">A small school-grades platform inspired by PRONOTE, the software used in French schools: a teacher area (grades, class statistics, timetable, absences) and a student area (averages, rank, homework). Passwords are hashed with PBKDF2.</p>
+          <p class="stack">Python, Flask, SQLite</p>
+          <p class="links">
+            <a href="https://noob-note.onrender.com" target="_blank" rel="noopener noreferrer"><span data-l="fr">Démo en ligne</span><span data-l="en">Live demo</span></a>
+            <a href="https://github.com/antoninche/noob-note" target="_blank" rel="noopener noreferrer"><span data-l="fr">Code source</span><span data-l="en">Source code</span></a>
+          </p>
+        </li>
+        <li class="proj">
+          <h3><span data-l="fr">Bot Discord</span><span data-l="en">Discord bot</span></h3>
+          <p data-l="fr">Un bot modulaire en discord.py 2.x&nbsp;: 28 commandes, en préfixe et en slash (modération, automod, niveaux, tickets). La configuration est validée au démarrage et stockée par serveur, ce qui permet au même bot de tourner sur plusieurs serveurs.</p>
+          <p data-l="en">A modular discord.py 2.x bot: 28 commands, both prefix and slash (moderation, automod, levels, tickets). Its configuration is validated at start-up and stored per server, so one bot can run on several servers with different settings.</p>
+          <p class="stack">Python, discord.py</p>
+          <p class="links">
+            <a href="https://antoninche.github.io/bot-discord/" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://github.com/antoninche/bot-discord" target="_blank" rel="noopener noreferrer"><span data-l="fr">Code source</span><span data-l="en">Source code</span></a>
+          </p>
+        </li>
+        <li class="proj">
+          <h3>Tower Defense</h3>
+          <p data-l="fr">Un jeu de défense de tours en pixel art, écrit en Python avec Pyxel. Parti d’un prototype réalisé en six heures à la Nuit du Code, je l’ai repris pour en faire un jeu complet&nbsp;: quatre types de tours, quinze vagues, interface de jeu, système de vies et effets sonores générés par le code. Tout l’équilibrage (coûts, portées, dégâts, vagues) tient dans un seul fichier de réglages.</p>
+          <p data-l="en">A pixel-art tower defence game written in Python with Pyxel. It started as a prototype built in six hours at the Nuit du Code coding marathon; I then developed it into a complete game: four tower types, fifteen waves, an in-game HUD, a lives system and sound effects generated in code. All balancing values (costs, ranges, damage, waves) live in a single settings file.</p>
+          <p class="stack"><span data-l="fr">Python, Pyxel, exécutables Windows et macOS (PyInstaller, GitHub Actions)</span><span data-l="en">Python, Pyxel, Windows and macOS builds (PyInstaller, GitHub Actions)</span></p>
+          <p class="links">
+            <a href="https://github.com/antoninche/tower-defense" target="_blank" rel="noopener noreferrer"><span data-l="fr">Code source</span><span data-l="en">Source code</span></a>
+            <a href="https://github.com/antoninche/tower-defense/releases" target="_blank" rel="noopener noreferrer"><span data-l="fr">Télécharger le jeu</span><span data-l="en">Download the game</span></a>
+          </p>
+        </li>
+      </ul>
+
+      <div class="more">
+        <h3><span data-l="fr">Autres projets</span><span data-l="en">Other projects</span></h3>
+        <ul>
+          <li><a href="https://github.com/antoninche/jeu-de-nim" target="_blank" rel="noopener noreferrer"><span data-l="fr">Jeu de Nim</span><span data-l="en">Nim game</span></a><span class="more__d" data-l="fr">Pygame, une IA qui apprend seule à jouer sur le principe de MENACE (Michie, 1961)</span><span class="more__d" data-l="en">Pygame, an AI that learns to play by itself, based on MENACE (Michie, 1961)</span></li>
+          <li><a href="https://github.com/antoninche/jeu_snake" target="_blank" rel="noopener noreferrer">Snake</a><span class="more__d" data-l="fr">Pygame, règles testables sans fenêtre, animation interpolée</span><span class="more__d" data-l="en">Pygame, rules testable without a window, interpolated animation</span></li>
+          <li><a href="https://antoninche.github.io/site-restaurant/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Site de restaurant</span><span data-l="en">Restaurant website</span></a><span class="more__d" data-l="fr">Trois thèmes au choix, horaires d’ouverture calculés en direct</span><span class="more__d" data-l="en">Three switchable themes, live opening hours</span></li>
+          <li><a href="https://antoninche.github.io/site-e-commerce/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Boutique de démonstration</span><span data-l="en">Demo online shop</span></a><span class="more__d" data-l="fr">JavaScript sans framework, filtres et panier persistant</span><span class="more__d" data-l="en">Framework-free JavaScript, filters and a persistent cart</span></li>
+        </ul>
       </div>
-    </section>
+    </div>
+    <div class="aside" aria-hidden="true"><svg class="fig" viewBox="0 0 150 108" role="img" aria-label="Arbre binaire de recherche" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M68 24.5 L52 43.5" stroke-width="2"/><path d="M82 24.5 L98 43.5" stroke-width="1.2"/><path d="M40.5 62 L31.5 82" stroke-width="1.2"/><path d="M49.5 62 L58.5 82" stroke-width="2"/><path d="M109.5 62 L118.5 82" stroke-width="1.2"/><circle cx="75" cy="16" r="11" stroke-width="2"/><text x="75" y="19.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">8</text><circle cx="45" cy="52" r="11" stroke-width="2"/><text x="45" y="55.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">3</text><circle cx="105" cy="52" r="11" stroke-width="1.2"/><text x="105" y="55.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">10</text><circle cx="27" cy="92" r="11" stroke-width="1.2"/><text x="27" y="95.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">1</text><circle cx="63" cy="92" r="11" stroke-width="2"/><text x="63" y="95.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">6</text><circle cx="123" cy="92" r="11" stroke-width="1.2"/><text x="123" y="95.6" text-anchor="middle" class="fig__t fig__mono" stroke="none" fill="currentColor">14</text></svg></div>
+  </section>
 
-    <!-- ────────────────────────────── CONTACT ───────────────────────────── -->
-    <section id="contact" class="section">
-      <div class="sectionHead">
-        <h2>Contact</h2>
-        <p class="sub">Une opportunité de stage ? Écrivez-moi.</p>
+  <!-- ============================== PUBLICATION ============================== -->
+  <section class="row sec" id="publication">
+    <h2 class="sec__label">Publication</h2>
+    <div class="sec__body">
+      <p class="ref">Chenavaz, R.&nbsp;Y.<span data-l="en">,</span> <span data-l="fr">et</span><span data-l="en">&amp;</span> Chenavaz, A. (2026). Adoption–usage demand: A discrete–continuous microfoundation. <i>Economics Letters</i>, <i>262</i>, 112894. <a href="https://doi.org/10.1016/j.econlet.2026.112894" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.econlet.2026.112894</a></p>
+      <p class="pub-sum" data-l="fr">Le modèle traite dans un même problème d’optimisation du consommateur deux décisions liées&nbsp;: adopter un produit (choix discret) et l’utiliser plus ou moins intensément (choix continu), comme pour un abonnement ou un véhicule.</p>
+      <p class="pub-sum" data-l="en">The model treats two linked decisions as a single consumer optimisation problem: whether to adopt a product (a discrete choice) and how intensively to use it (a continuous choice), as with a subscription or a vehicle.</p>
+      <p class="pub-meta"><span data-l="fr">Revue à comité de lecture, article publié en ligne en février 2026.</span><span data-l="en">Peer-reviewed journal, published online in February 2026.</span></p>
+    </div>
+  </section>
+
+  <!-- ============================== CONCOURS ============================== -->
+  <section class="row sec" id="concours">
+    <h2 class="sec__label"><span data-l="fr">Concours</span><span data-l="en">Competitions</span></h2>
+    <div class="sec__body">
+      <ul class="entries">
+        <li class="entry">
+          <span class="entry__when">2026</span>
+          <div>
+            <h3><span data-l="fr">Prix «&nbsp;Nature &amp; Informatique&nbsp;», Trophées NSI, académie d’Aix-Marseille</span><span data-l="en">“Nature &amp; Informatique” prize, Trophées NSI, Aix-Marseille region</span></h3>
+            <p data-l="fr">Avec Défi Nature, en équipe de trois. Remise des prix en mai 2026 au lycée Jean-Perrin, à Marseille.</p>
+            <p data-l="en">Won with Défi Nature, as a team of three. The award ceremony took place in May 2026 at Lycée Jean-Perrin, Marseille.</p>
+            <p class="links">
+              <a href="https://www.laprovence.com/article/economie/1713784269784/au-lycee-jean-perrin-a-marseille-les-trophees-nsi-recompensent-les-informaticiens-de-demain" target="_blank" rel="noopener noreferrer"><span data-l="fr">Article de La Provence</span><span data-l="en">La Provence article (in French)</span></a>
+              <a href="https://www.instagram.com/reel/DeJd5dIhb5S/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Interview vidéo</span><span data-l="en">Video interview (in French)</span></a>
+            </p>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry__when"><span data-l="fr">Lycée</span><span data-l="en">High school</span></span>
+          <div>
+            <h3>Nuit du Code</h3>
+            <p data-l="fr">Trois participations à ce marathon de programmation, où l’on a six heures pour coder un jeu. Mon Tower Defense est parti d’un prototype réalisé lors de l’une d’elles.</p>
+            <p data-l="en">Three participations in this coding marathon, where teams have six hours to build a game. My Tower Defense game grew out of a prototype made at one of them.</p>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry__when"><span data-l="fr">Lycée</span><span data-l="en">High school</span></span>
+          <div>
+            <h3><span data-l="fr">Concours général des lycées, NSI</span><span data-l="en">Concours général des lycées, computer science</span></h3>
+            <p data-l="fr">Participation.</p>
+            <p data-l="en">Took part in France’s national high-school academic competition.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== PARCOURS ============================== -->
+  <section class="row sec" id="parcours">
+    <h2 class="sec__label"><span data-l="fr">Parcours</span><span data-l="en">Background</span></h2>
+    <div class="sec__body">
+      <div class="group">
+        <h3 class="group__t"><span data-l="fr">Formation</span><span data-l="en">Education</span></h3>
+        <ol class="entries">
+          <li class="entry">
+            <span class="entry__when">2026 – 2029</span>
+            <div>
+              <h3><span data-l="fr">Licence MPCI, Aix-Marseille Université</span><span data-l="en">Bachelor’s degree (Licence) in MPCI, Aix-Marseille University</span></h3>
+              <p data-l="fr">Mathématiques, physique, chimie et informatique. Campus de <span class="nw">Saint-Jérôme</span>, Marseille.</p>
+              <p data-l="en">Mathematics, physics, chemistry and computer science. Saint-Jérôme campus, Marseille.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <span class="entry__when">2023 – 2026</span>
+            <div>
+              <h3><span data-l="fr">Lycée Marseilleveyre, Marseille</span><span data-l="en">Lycée Marseilleveyre (high school), Marseille</span></h3>
+              <p data-l="fr">Bac général 2026, spécialités mathématiques et NSI, mention Très Bien.</p>
+              <p data-l="en">French baccalauréat 2026, maths and computer science majors, highest honours.</p>
+            </div>
+          </li>
+        </ol>
       </div>
-
-      <div class="contact">
-        <a class="btn primary" href="mailto:school.an.chenavaz@gmail.com">✉︎ Me contacter par email</a>
-        <button id="copyBtn" class="btn ghost" type="button" data-copy="school.an.chenavaz@gmail.com">
-          Copier mon email
-        </button>
-        <a class="btn ghost" href="https://github.com/antoninche" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <div class="group">
+        <h3 class="group__t"><span data-l="fr">Expériences</span><span data-l="en">Experience</span></h3>
+        <ol class="entries">
+          <li class="entry">
+            <span class="entry__when"><span data-l="fr">Mai 2026</span><span data-l="en">May 2026</span></span>
+            <div>
+              <h3><span data-l="fr">Animateur scientifique, intervenant en informatique (bénévole), CIRM</span><span data-l="en">Volunteer science facilitator in computer science, CIRM</span></h3>
+              <p data-l="fr">Un mois au <a href="https://www.cirm-math.com/" target="_blank" rel="noopener noreferrer">Centre International de Rencontres Mathématiques</a>, à Marseille. Animation d’un stand d’informatique&nbsp;: vulgarisation de notions du programme de NSI (algorithmique, structures de données) par des échanges et des ateliers pratiques.</p>
+              <p data-l="en">One month at the <a href="https://www.cirm-math.com/" target="_blank" rel="noopener noreferrer">Centre International de Rencontres Mathématiques</a> (International Centre for Mathematical Meetings), Marseille. Ran a computer science stand, explaining topics from the French high-school computer science curriculum (algorithms, data structures) through discussions and hands-on workshops.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <span class="entry__when"><span data-l="fr">Juin – juil. 2024</span><span data-l="en">Jun – Jul 2024</span></span>
+            <div>
+              <h3><span data-l="fr">Stage au service informatique, KEDGE Business School</span><span data-l="en">IT department intern, KEDGE Business School</span></h3>
+              <p data-l="fr">Deux semaines dans l’équipe informatique, à Marseille&nbsp;: infrastructure, outils internes, environnement de production.</p>
+              <p data-l="en">Two weeks in the IT team in Marseille: infrastructure, internal tools, production environment.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <span class="entry__when"><span data-l="fr">Févr. 2023</span><span data-l="en">Feb 2023</span></span>
+            <div>
+              <h3><span data-l="fr">Stage d’entraîneur de handball, ASPTT Marseille</span><span data-l="en">Handball coaching internship, ASPTT Marseille</span></h3>
+              <p data-l="fr">Un mois. J’animais des séances de handball pour tous les publics, des élèves d’école primaire aux jeunes joueurs de niveau compétition.</p>
+              <p data-l="en">One month. I ran handball sessions for all audiences, from primary-school pupils to young players at competitive level.</p>
+            </div>
+          </li>
+        </ol>
       </div>
-    </section>
+    </div>
+    <div class="aside" aria-hidden="true"><svg class="fig" viewBox="0 0 126 128" role="img" aria-label="Pendule simple" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M30 20 L36 13 M39 20 L45 13 M48 20 L54 13 M57 20 L63 13 M66 20 L72 13 M75 20 L81 13 M84 20 L90 13 M93 20 L99 13 " stroke-width="1"/><path d="M26 20 H100" stroke-width="1.6"/><path d="M62 20 V120" stroke-width="1" stroke-dasharray="3 4"/><path d="M27.8 96.7 A84 84 0 0 0 96.2 96.7" stroke-width="1" stroke-dasharray="1.5 4"/><path d="M62 48 A28 28 0 0 0 73.4 45.6" stroke-width="1"/><text x="70.5" y="65.1" text-anchor="middle" class="fig__t fig__it" stroke="none" fill="currentColor">θ</text><path d="M62 20 L92.5 88.5" stroke-width="1.4"/><circle cx="96.2" cy="96.7" r="9" stroke-width="1.4"/><circle cx="62" cy="20" r="2.2" fill="currentColor" stroke="none"/><text x="88.1" y="60.4" class="fig__t fig__it" stroke="none" fill="currentColor">ℓ</text></svg></div>
+  </section>
 
-    <footer class="footer">
-      <span class="muted">© <span id="year"></span> Antonin CHE</span>
-      <span class="muted">·</span>
-      <a class="muted link" href="#top">Retour en haut</a>
-    </footer>
-  </main>
+  <!-- ============================== COMPÉTENCES ============================== -->
+  <section class="row sec" id="competences">
+    <h2 class="sec__label"><span data-l="fr">Compétences</span><span data-l="en">Skills</span></h2>
+    <div class="sec__body">
+      <dl class="skills">
+        <dt><span data-l="fr">Langages</span><span data-l="en">Programming</span></dt>
+        <dd>Python, JavaScript, HTML <span data-l="fr">et</span><span data-l="en">&amp;</span> CSS, SQL</dd>
+        <dt><span data-l="fr">Outils</span><span data-l="en">Tools</span></dt>
+        <dd>Pygame, NumPy, Flask, SQLite, discord.py, Pyxel, Git <span data-l="fr">et</span><span data-l="en">&amp;</span> GitHub, GitHub Actions, PyInstaller</dd>
+        <dt><span data-l="fr">Méthodes</span><span data-l="en">Methods</span></dt>
+        <dd><span data-l="fr">Moteur de jeu séparé de l’affichage, tests, simulations statistiques et <span class="nw">Monte-Carlo</span>, apprentissage par renforcement simple</span><span data-l="en">Game engine kept separate from the display, testing, statistical and Monte Carlo simulation, basic reinforcement learning</span></dd>
+        <dt><span data-l="fr">Aussi</span><span data-l="en">Also</span></dt>
+        <dd><span data-l="fr">Vulgarisation scientifique, réseaux informatiques</span><span data-l="en">Science communication, computer networks</span></dd>
+        <dt><span data-l="fr">Langues</span><span data-l="en">Languages</span></dt>
+        <dd><span data-l="fr">Français (langue maternelle), anglais (B1)</span><span data-l="en">French (native), English (B1)</span></dd>
+      </dl>
+    </div>
+    <div class="aside" aria-hidden="true"><svg class="fig" viewBox="0 0 140 110" role="img" aria-label="Carbone asymétrique en représentation de Cram" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M70 62 L70 32 M70 62 L39.4 82.9" stroke-width="1.5"/><polygon points="70,62 92.6,90.1 99.4,82.8" fill="currentColor" stroke="none"/><path d="M75.2 58.8 L75.9 60.7 M80 55.9 L81.4 59.4 M84.7 53.1 L86.8 58.1 M89.5 50.2 L92.2 56.8 M94.3 47.3 L97.6 55.5 M99.1 44.4 L103 54.2" stroke-width="1.2"/><text x="70" y="20" text-anchor="middle" class="fig__t" stroke="none" fill="currentColor">OH</text><text x="28" y="93" text-anchor="middle" class="fig__t" stroke="none" fill="currentColor">H</text><text x="108" y="100" text-anchor="middle" class="fig__t" stroke="none" fill="currentColor">Cl</text><text x="120" y="46" text-anchor="middle" class="fig__t" stroke="none" fill="currentColor">Br</text></svg></div>
+  </section>
 
-  <script src="js/script.js"></script>
-</body>
-</html>
+  <!-- ============================== LINKEDIN ==============================
+       Pour mettre à jour : remplace, dans chaque carte, le type (Publication / Republication),
+       la date, le texte FR et EN, et le lien (menu ··· du post > Copier le lien vers le post). -->
+  <section class="row sec" id="linkedin">
+    <h2 class="sec__label"><span data-l="fr">Sur LinkedIn</span><span data-l="en">On LinkedIn</span></h2>
+    <div class="sec__body">
+      <div class="posts">
+        <article class="post">
+          <div class="post__top">
+            <span class="post__kind"><span data-l="fr">Publication</span><span data-l="en">Post</span></span>
+            <time datetime="2026-10-06"><span data-l="fr">6 octobre 2026</span><span data-l="en">6 October 2026</span></time>
+          </div>
+          <p class="post__text" data-l="fr">Lauréats du prix «&nbsp;Nature &amp; Informatique&nbsp;» des Trophées NSI 2026 pour l’académie d’Aix-Marseille, et mon interview vient d’être publiée. Nous avons recréé en Python le jeu de cartes Défis Nature, avec des robots aux stratégies variées (hasard, statistiques, <span class="nw">Monte-Carlo</span>) mis en concurrence sur des milliers de parties.</p>
+          <p class="post__text" data-l="en">Our team won the “Nature &amp; Informatique” prize of the 2026 Trophées NSI for the Aix-Marseille region, and my interview has just been published. We recreated the Défis Nature card game in Python, with bots using different strategies (random, statistics, Monte Carlo) competing over thousands of games.</p>
+          <p class="post__note" data-l="en">Translated from French.</p>
+          <a class="post__link" href="https://www.linkedin.com/feed/update/urn:li:share:7513323114483589121/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Lire le post</span><span data-l="en">Read the post</span></a>
+        </article>
+        <article class="post">
+          <div class="post__top">
+            <span class="post__kind"><span data-l="fr">Republication</span><span data-l="en">Repost</span></span>
+            <time datetime="2026-09-25"><span data-l="fr">Post du 25 septembre 2026</span><span data-l="en">Posted 25 September 2026</span></time>
+          </div>
+          <p class="post__from"><span data-l="fr">Faculté des Sciences d’Aix-Marseille Université</span><span data-l="en">Faculty of Science, Aix-Marseille University</span></p>
+          <p class="post__text" data-l="fr">La Faculté revient sur la rencontre entre ses étudiants de physique et Pierre Agostini, prix Nobel de physique 2023&nbsp;: son parcours, ses choix scientifiques et l’avenir de la recherche face à l’intelligence artificielle.</p>
+          <p class="post__text" data-l="en">The Faculty looks back on its physics students’ meeting with Pierre Agostini, 2023 Nobel laureate in physics: his career, his scientific choices and the future of research in the age of artificial intelligence.</p>
+          <a class="post__link" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7509244276703309825/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Voir le post</span><span data-l="en">View the post</span></a>
+        </article>
+      </div>
+      <p class="allact"><a href="https://www.linkedin.com/in/antonin-chenavaz-9b9215421/recent-activity/all/" target="_blank" rel="noopener noreferrer"><span data-l="fr">Toute mon activité sur LinkedIn</span><span data-l="en">All my LinkedIn activity</span></a></p>
+    </div>
+  </section>
+
+  <!-- ============================== À CÔTÉ ============================== -->
+  <section class="row sec" id="a-cote">
+    <h2 class="sec__label"><span data-l="fr">À côté</span><span data-l="en">Outside class</span></h2>
+    <div class="sec__body prose">
+      <p data-l="fr">Après une section sport-études handball, j’ai joué à l’Entente Marseille Provence Handball, en compétition au niveau Régional Élite (Région Sud). J’ai aussi animé des séances pour des enfants et de jeunes joueurs lors de mon stage d’entraîneur à l’ASPTT Marseille.</p>
+      <p data-l="en">After a sports-study programme (sport-études) in handball, I played for Entente Marseille Provence Handball, competing at Régional Élite level in the Provence-Alpes-Côte d’Azur region. I also ran sessions for children and young players during my coaching internship at ASPTT Marseille.</p>
+    </div>
+  </section>
+
+  <!-- ============================== CONTACT ============================== -->
+  <section class="row sec" id="contact">
+    <h2 class="sec__label">Contact</h2>
+    <div class="sec__body">
+      <p style="margin: 0 0 8px;"><span data-l="fr">Le plus simple est de m’écrire par e-mail.</span><span data-l="en">Email is the easiest way to reach me.</span></p>
+      <p class="mail"><a data-mail href="#contact"><span data-mail-text>antonin.chenavaz [at] etu.univ-amu.fr</span></a></p>
+      <button type="button" class="copy" id="copy-btn">Copier l’adresse</button>
+      <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      <ul class="contact-links">
+        <li><a href="https://www.linkedin.com/in/antonin-chenavaz-9b9215421/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/antoninche" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+<footer class="row foot">
+  <div class="foot__body">
+    <p>Antonin CHE, 2026. <a href="https://github.com/antoninche/antoninche.github.io" target="_blank" rel="noopener noreferrer"><span data-l="fr">Code source du site</span><span data-l="en">Site source code</span></a></p>
+  </div>
+</footer>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var T = {
+      fr: {
+        toDark: "Passer en mode sombre",
+        toLight: "Passer en mode clair",
+        copy: "Copier l’adresse",
+        copied: "Adresse copiée.",
+        copyFail: "Copie impossible ici : l’adresse est sélectionnée, copie-la avec Ctrl+C ou Cmd+C.",
+        langGroup: "Langue du site",
+        nav: "Sections de la page",
+        mcAlt: "Nuage de points aléatoires dans un carré unité, avec le quart de disque de rayon 1",
+        mc: function (n, k, est, se) { return "n = " + n + " points tirés au hasard, dont " + k + " dans le quart de disque : π ≈ 4 × " + k + " / " + n + " = " + est + " ± " + se + " (écart-type de l’estimation)."; },
+        locale: "fr-FR"
+      },
+      en: {
+        toDark: "Switch to dark mode",
+        toLight: "Switch to light mode",
+        copy: "Copy address",
+        copied: "Address copied.",
+        copyFail: "Copying is blocked here: the address is selected, press Ctrl+C or Cmd+C.",
+        langGroup: "Site language",
+        nav: "Page sections",
+        mcAlt: "Random points in a unit square, with the quarter disc of radius 1",
+        mc: function (n, k, est, se) { return "n = " + n + " random points, " + k + " of them inside the quarter disc: π ≈ 4 × " + k + " / " + n + " = " + est + " ± " + se + " (standard error)."; },
+        locale: "en-GB"
+      }
+    };
+    function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function lang() { return root.getAttribute("data-lang") === "en" ? "en" : "fr"; }
+    function isDark() {
+      var t = root.getAttribute("data-theme");
+      if (t === "dark") return true;
+      if (t === "light") return false;
+      return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+
+    /* ---------- Fig. 1 : estimation de π par Monte-Carlo ---------- */
+    var N = 2000, seed = 20260701, pts = null, shown = 0, anim = 0;
+    var canvas = document.getElementById("mc-canvas");
+    var res = document.getElementById("mc-res");
+    function rng(a) {
+      return function () {
+        a |= 0; a = a + 0x6D2B79F5 | 0;
+        var t = Math.imul(a ^ a >>> 15, 1 | a);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    function sample(s) {
+      var r = rng(s);
+      pts = new Float32Array(2 * N);
+      for (var i = 0; i < N; i++) { pts[2 * i] = r(); pts[2 * i + 1] = r(); }
+    }
+    function token(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
+    function draw(count) {
+      if (!canvas || !canvas.getContext || !pts) return 0;
+      var css = canvas.clientWidth || 300;
+      var dpr = Math.min(window.devicePixelRatio || 1, 3);
+      if (canvas.width !== Math.round(css * dpr)) { canvas.width = Math.round(css * dpr); canvas.height = Math.round(css * dpr); }
+      var g = canvas.getContext("2d");
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.clearRect(0, 0, css, css);
+      var L = 22, B = 20, Tp = 6, R = 6, w = css - L - R, h = css - Tp - B;
+      var ink2 = token("--ink-2"), ink3 = token("--ink-3"), rule = token("--rule"), acc = token("--accent");
+      g.lineWidth = 1;
+      g.strokeStyle = rule;
+      g.strokeRect(L + .5, Tp + .5, w - 1, h - 1);
+      var cIn = 0;
+      for (var k = 0; k < count; k++) {
+        var x = pts[2 * k], y = pts[2 * k + 1], inQ = x * x + y * y <= 1;
+        if (inQ) cIn++;
+        g.fillStyle = inQ ? acc : ink3;
+        g.fillRect(L + x * w - 1, Tp + (1 - y) * h - 1, 2, 2);
+      }
+      g.strokeStyle = ink2;
+      g.lineWidth = 1.25;
+      g.beginPath();
+      g.arc(L, Tp + h, w, -Math.PI / 2, 0);
+      g.stroke();
+      g.fillStyle = ink2;
+      g.font = "11px " + token("--f-body");
+      g.textAlign = "center"; g.textBaseline = "top";
+      g.fillText("0", L, Tp + h + 5);
+      g.fillText("1", L + w, Tp + h + 5);
+      g.textAlign = "right"; g.textBaseline = "middle";
+      g.fillText("1", L - 6, Tp + 1);
+      return cIn;
+    }
+    function caption(count, cIn) {
+      if (!res) return;
+      var L = T[lang()];
+      var fmt = new Intl.NumberFormat(L.locale);
+      var f3 = new Intl.NumberFormat(L.locale, { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+      var p = cIn / count;
+      res.textContent = L.mc(fmt.format(count), fmt.format(cIn), f3.format(4 * p), f3.format(4 * Math.sqrt(p * (1 - p) / count)));
+    }
+    function render() { var c = draw(shown); caption(shown, c); }
+    function redraw() {
+      if (anim) { cancelAnimationFrame(anim); anim = 0; }
+      sample(seed);
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) { shown = N; render(); return; }
+      shown = 0;
+      (function step() {
+        shown = Math.min(N, shown + 80);
+        draw(shown);
+        if (shown < N) { anim = requestAnimationFrame(step); } else { anim = 0; render(); }
+      })();
+    }
+    sample(seed); shown = N;
+
+    function refresh() {
+      var L = T[lang()];
+      root.lang = lang();
+      Array.prototype.forEach.call(document.querySelectorAll("[data-lang-btn]"), function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-lang-btn") === lang()));
+      });
+      var tb = document.getElementById("theme-btn");
+      if (tb) { var label = isDark() ? L.toLight : L.toDark; tb.setAttribute("aria-label", label); tb.title = label; }
+      var cb = document.getElementById("copy-btn");
+      if (cb) cb.textContent = L.copy;
+      var lg = document.getElementById("lang-group");
+      if (lg) lg.setAttribute("aria-label", L.langGroup);
+      var nv = document.getElementById("nav");
+      if (nv) nv.setAttribute("aria-label", L.nav);
+      if (canvas) canvas.setAttribute("aria-label", L.mcAlt);
+      var st = document.getElementById("copy-status");
+      if (st) st.textContent = "";
+      if (!anim) render();
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-lang-btn]"), function (b) {
+      b.addEventListener("click", function () {
+        var l = b.getAttribute("data-lang-btn");
+        root.setAttribute("data-lang", l);
+        save("ac-lang", l);
+        refresh();
+      });
+    });
+    var themeBtn = document.getElementById("theme-btn");
+    if (themeBtn) themeBtn.addEventListener("click", function () {
+      var next = isDark() ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      save("ac-theme", next);
+      refresh();
+    });
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.addEventListener) mq.addEventListener("change", refresh);
+    }
+    var mcBtn = document.getElementById("mc-btn");
+    if (mcBtn) mcBtn.addEventListener("click", function () {
+      seed = (Date.now() ^ Math.floor(Math.random() * 4294967296)) >>> 0;
+      redraw();
+    });
+    if (window.ResizeObserver && canvas) { new ResizeObserver(function () { if (!anim) render(); }).observe(canvas); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!anim) render(); });
+
+    /* Adresse e-mail assemblée ici pour la cacher aux robots qui aspirent les adresses. */
+    var addr = ["antonin", "chenavaz"].join(".") + "@" + ["etu", "univ-amu", "fr"].join(".");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mail]"), function (a) { a.href = "mailto:" + addr; });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mail-text]"), function (el) { el.textContent = addr; });
+
+    var copyBtn = document.getElementById("copy-btn");
+    var status = document.getElementById("copy-status");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      var L = T[lang()];
+      function fail() {
+        var el = document.querySelector("[data-mail-text]");
+        if (el && window.getSelection) {
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        if (status) status.textContent = L.copyFail;
+      }
+      try {
+        navigator.clipboard.writeText(addr).then(function () { if (status) status.textContent = L.copied; }, fail);
+      } catch (e) { fail(); }
+    });
+
+    refresh();
+  })();
+</script>
+
+</body></html>
